@@ -1,3 +1,5 @@
+import 'package:flutter_getx_template/features/user/home/views/category_list_screen.dart';
+import 'package:flutter_getx_template/features/user/home/views/home_screen.dart';
 import 'package:get/get.dart';
 
 import '../../features/home/bindings/home_binding.dart';
