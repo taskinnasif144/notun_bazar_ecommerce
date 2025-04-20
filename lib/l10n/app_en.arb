@@ -1,0 +1,33 @@
+{
+  "homeTitle": "Home",
+  "welcomeMessage": "Welcome to My App!",
+  "count": "Counter: {value}",
+  "increment": "Increment",
+  "@count": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "changeLanguage": "Switch to Spanish",
+  "@changeLanguage": {
+    "description": "Button to change the app language to Spanish",
+    "type": "String"
+  },
+  "darkMode": "Dark Mode",
+  "@darkMode": {
+    "description": "Label for dark mode toggle",
+    "type": "String"
+  },
+  "lightMode": "Light Mode",
+  "@lightMode": {
+    "description": "Label for light mode toggle",
+    "type": "String"
+  },
+  "ecomode": "Eco Mode",
+  "@ecomode": {
+    "description": "Label for eco mode toggle",
+    "type": "String"
+  }
+}

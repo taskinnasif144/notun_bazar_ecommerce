@@ -1,0 +1,2 @@
+C:/Users/taski/OneDrive/Desktop/start up/notun_bazar_e_commerce/android/app/.cxx/Debug/1s6h4sx4/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/taski/OneDrive/Desktop/start up/notun_bazar_e_commerce/android/app/.cxx/Debug/1s6h4sx4/x86_64/CMakeFiles/rebuild_cache.dir

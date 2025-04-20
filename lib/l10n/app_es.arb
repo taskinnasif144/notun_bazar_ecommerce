@@ -1,0 +1,33 @@
+{
+  "homeTitle": "Inicio",
+  "welcomeMessage": "¡Bienvenido a Mi App!",
+  "count": "Contador: {value}",
+  "increment": "Incrementar",
+  "@count": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "changeLanguage": "Cambiar a español",
+  "@changeLanguage": {
+    "description": "Botón para cambiar el idioma de la aplicación a español",
+    "type": "String"
+  },
+  "darkMode": "Modo oscuro",
+  "@darkMode": {
+    "description": "Etiqueta para el interruptor de modo oscuro",
+    "type": "String"
+  },
+  "lightMode": "Modo claro",
+  "@lightMode": {
+    "description": "Etiqueta para el interruptor de modo claro",
+    "type": "String"
+  },
+  "ecomode": "Modo ecológico",
+  "@ecomode": {
+    "description": "Etiqueta para el interruptor de modo ecológico",
+    "type": "String"
+  }
+}
