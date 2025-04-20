@@ -9,7 +9,7 @@ abstract class Routes {
   static const verifyOtpScreen = '/verify-otp';
   static const newPasswordScreen = '/new-password';
 
-  // For users
+  // For Users
 
   // home feature
   static const homeScreen = '/home';
@@ -26,4 +26,6 @@ abstract class Routes {
 
   // favourite features
   static const favouriteScreen = '/favourite';
+
+  // For Sellers
 }
