@@ -1,6 +1,6 @@
+import 'package:flutter_getx_template/core/themes/app_theme.dart';
 import 'package:get/get.dart';
 
-import '../../../core/themes/app_theme.dart';
 import '../controllers/home_controller.dart';
 
 class HomeBinding extends Bindings {
