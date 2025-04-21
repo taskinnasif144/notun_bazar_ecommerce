@@ -17,6 +17,7 @@ dependencies:
   intl: any
   cupertino_icons: ^1.0.8
   get_storage: ^2.1.1
+  flutter_svg: ^2.1.0
 
 dev_dependencies:
   flutter_test:

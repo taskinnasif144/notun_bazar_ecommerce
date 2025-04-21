@@ -22,7 +22,7 @@ import 'package:get/get.dart';
 part 'app_routes.dart';
 
 class AppPages {
-  static const initial = Routes.signInScreen;
+  static const initial = Routes.splashScreen;
 
   static final routes = [
     // Auth Features Pages
