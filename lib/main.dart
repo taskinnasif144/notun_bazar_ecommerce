@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
     // Initialize the ThemeController
     Get.put(ThemeController());
     return ScreenUtilInit(
-      designSize: const Size(360, 690),
+      designSize: const Size(393, 852),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
