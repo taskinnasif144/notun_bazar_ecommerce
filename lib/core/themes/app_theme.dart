@@ -4,7 +4,7 @@ import 'package:get_storage/get_storage.dart';
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
-    primarySwatch: Colors.blue,
+    primarySwatch: Colors.deepPurple,
     brightness: Brightness.light,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: Colors.white,
@@ -12,6 +12,7 @@ class AppTheme {
       backgroundColor: Colors.blue,
       foregroundColor: Colors.white,
     ),
+
   );
 
   static final ThemeData darkTheme = ThemeData(

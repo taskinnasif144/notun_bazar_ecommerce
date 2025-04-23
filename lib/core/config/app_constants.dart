@@ -1,3 +1,3 @@
 class AppConstants {
-  static const String appName = 'Joura Pothole';
+  static const String appName = 'Notun Bazar';
 }
