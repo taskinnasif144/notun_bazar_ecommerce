@@ -9,4 +9,9 @@ class AppTextStyle {
     fontWeight: FontWeight.w500,
     color: Color(0xFF222222),
   );
+  static TextStyle bodyStyle1 = GoogleFonts.roboto(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    color: Color(0xFF222222),
+  );
 }

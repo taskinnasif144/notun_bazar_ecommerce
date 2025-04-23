@@ -12,8 +12,11 @@ class GetTextStyle {
   GetTextStyle._internal();
 
   // You can use some theme mode flag or a controller to return appropriate styles
-  TextStyle getHeading() {
+  TextStyle getHeading1() {
     return AppTextStyle.headerStyle1;
+  }
+  TextStyle getBody1() {
+    return AppTextStyle.bodyStyle1;
   }
 
   // And so on...
