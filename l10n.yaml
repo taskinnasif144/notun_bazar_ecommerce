@@ -1,0 +1,20 @@
+# l10n.yaml (extension specific options)
+
+# Enable translation 
+translate: false              
+
+# Auto run flutter gen-l10n               
+generate : true       
+
+# Key prefix for translation             
+key-prefix: AppLocalizations.of(context)!.  
+
+# Generate key name 
+# "ask" : prompt with pre-filled text | true : infer from text | false : prompt  
+auto-name-key: true       
+
+# Language to use for key name                  
+key-name-language: en       
+
+# Import line if needed                
+import-line: ""   

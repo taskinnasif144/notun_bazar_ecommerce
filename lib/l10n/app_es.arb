@@ -29,5 +29,6 @@
   "@ecomode": {
     "description": "Etiqueta para el interruptor de modo ecológico",
     "type": "String"
-  }
+  },
+  "signInScreen": "Sign In Screen"
 }

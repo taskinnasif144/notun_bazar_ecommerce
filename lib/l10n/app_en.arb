@@ -29,5 +29,6 @@
   "@ecomode": {
     "description": "Label for eco mode toggle",
     "type": "String"
-  }
+  },
+  "signInScreen": "Sign In Screen"
 }
