@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/Common/components/custom_button.dart';
 import 'package:flutter_getx_template/Common/components/custom_input_field.dart';
+import 'package:flutter_getx_template/core/routes/app_pages.dart';
 import 'package:flutter_getx_template/core/utils/get_color.dart';
 import 'package:flutter_getx_template/core/utils/get_text_style.dart';
 import 'package:flutter_getx_template/core/utils/spacing.dart';
@@ -15,6 +16,8 @@ class SignInScreen extends StatelessWidget {
   final GetTextStyle style = GetTextStyle();
   final AuthController auth = Get.find<AuthController>();
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,18 +28,54 @@ class SignInScreen extends StatelessWidget {
             children: [
               SizedBox(width: Get.width),
               Text("Sign in", style: style.getHeading1()),
-              SizedBox(height: 46.h,),
-             Form(
-              child: Column(
-                spacing: 14.h,
-                children: [
-                   CustomInputField(controller: TextEditingController(), title: "Email", ),
-                   CustomInputField(controller: TextEditingController(), title: "Password", ),
-                   getVerticalSpace(12),
-                   CustomButton(buttonTitle: "Sign in", onTap:auth.signInMethod)
-                ],
+              SizedBox(height: 46.h),
+              Form(
+                child: Column(
+                  spacing: 14.h,
+                  children: [
+
+                    // Form is used to validate the input fields
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          CustomInputField(
+                            controller: auth.emailController,
+                            title: "Email",
+                          ),
+                          CustomInputField(
+                            controller: auth.passwordController,
+                            title: "Password",
+                          ),
+                          getVerticalSpace(12),
+
+                          // sign in button
+                          CustomButton(
+                            buttonTitle: "Sign in",
+                            onTap: () => auth.signInMethod(_formKey),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // to navigate to sign up
+                    Row(
+                      spacing: 6,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Already have an account?",
+                          style: style.getBody3(),
+                        ),
+                        GestureDetector(
+                          onTap: () => Get.toNamed(Routes.signUpScreen),
+                          child: Text("Sign Up", style: style.getBody3()),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-             )
             ],
           ),
         ),

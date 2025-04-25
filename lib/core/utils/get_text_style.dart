@@ -18,6 +18,9 @@ class GetTextStyle {
   TextStyle getBody1() {
     return AppTextStyle.bodyStyle1;
   }
+  TextStyle getBody3() {
+    return AppTextStyle.bodyStyle3;
+  }
 
   // And so on...
 }

@@ -7,19 +7,23 @@ class AuthController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  Future signInMethod() async {
-       final body = {
-       "email": emailController.text,
-       "passwrod" : passwordController.text,
-       };
+  Future signInMethod(formKey) async {
+    // to trigger the form validation
+    if (!formKey.currentState!.validate()) {
+      return;
+    }
+    
+    final body = {
+      "email": emailController.text,
+      "passwrod": passwordController.text,
+    };
 
-       Get.find<LoadingController>().showLoading();
-       await Future.delayed(Duration(seconds: 2));
-       Get.find<LoadingController>().hideLoading();
+    Get.find<LoadingController>().showLoading();
+    await Future.delayed(Duration(seconds: 2));
+    Get.find<LoadingController>().hideLoading();
 
-       showCustomSnackBar("Authorized");
+    showCustomSnackBar("Authorized");
 
-       debugPrint("========>>>>>>>>>> body: $body");
-
+    debugPrint("========>>>>>>>>>> body: $body");
   }
 }
