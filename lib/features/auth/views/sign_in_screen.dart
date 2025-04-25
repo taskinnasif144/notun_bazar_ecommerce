@@ -5,6 +5,7 @@ import 'package:flutter_getx_template/core/utils/get_color.dart';
 import 'package:flutter_getx_template/core/utils/get_text_style.dart';
 import 'package:flutter_getx_template/core/utils/spacing.dart';
 import 'package:flutter_getx_template/core/wrappers/padding_wrapper.dart';
+import 'package:flutter_getx_template/features/auth/controllers/auth_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +13,7 @@ class SignInScreen extends StatelessWidget {
   SignInScreen({super.key});
   final GetColor color = GetColor();
   final GetTextStyle style = GetTextStyle();
+  final AuthController auth = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class SignInScreen extends StatelessWidget {
                    CustomInputField(controller: TextEditingController(), title: "Email", ),
                    CustomInputField(controller: TextEditingController(), title: "Password", ),
                    getVerticalSpace(12),
-                   CustomButton(buttonTitle: "Sign in", onTap: () {})
+                   CustomButton(buttonTitle: "Sign in", onTap:auth.signInMethod)
                 ],
               ),
              )

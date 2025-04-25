@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/core/constants/app_colors.dart';
 import 'package:flutter_getx_template/core/utils/get_color.dart';
 import 'package:flutter_getx_template/core/utils/get_text_style.dart';
+import 'package:flutter_getx_template/core/utils/loading_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class CustomButton extends StatelessWidget {
@@ -30,6 +32,8 @@ class CustomButton extends StatelessWidget {
   final GetColor color = GetColor();
   final GetTextStyle text = GetTextStyle();
 
+  final LoadingController loader = Get.find<LoadingController>();
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -45,24 +49,28 @@ class CustomButton extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(isRounded ? 100 : 12),
           ),
-          child: Center(
-            child:
-                isLoading
-                    ? LoadingAnimationWidget.staggeredDotsWave(
-                      color: Colors.white,
-                      size: 22,
-                    )
-                    : Text(
-                      buttonTitle,
-                      style:text.getBody1().copyWith(
-                        color:
-                            isFilled
-                                ? Colors.white
-                                : isRed
-                                ? AppColors.dangerColor
-                                : color.getPrimary(),
-                      ),
-                    ),
+          child:Obx(
+            () {
+              return Center(
+                child:
+                    loader.isLoading.value
+                        ? LoadingAnimationWidget.staggeredDotsWave(
+                          color: Colors.white,
+                          size: 22,
+                        )
+                        : Text(
+                          buttonTitle,
+                          style:text.getBody1().copyWith(
+                            color:
+                                isFilled
+                                    ? Colors.white
+                                    : isRed
+                                    ? AppColors.dangerColor
+                                    : color.getPrimary(),
+                          ),
+                        ),
+              );
+            }
           ),
         ),
       ),
