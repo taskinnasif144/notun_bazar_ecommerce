@@ -12,7 +12,7 @@ class AuthController extends GetxController {
     if (!formKey.currentState!.validate()) {
       return;
     }
-    
+
     final body = {
       "email": emailController.text,
       "passwrod": passwordController.text,

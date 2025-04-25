@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/Common/components/custom_button.dart';
 import 'package:flutter_getx_template/Common/components/custom_input_field.dart';
+import 'package:flutter_getx_template/core/constants/app_icons.dart';
 import 'package:flutter_getx_template/core/routes/app_pages.dart';
 import 'package:flutter_getx_template/core/utils/get_color.dart';
 import 'package:flutter_getx_template/core/utils/get_text_style.dart';
+import 'package:flutter_getx_template/core/utils/icon_renderer.dart';
 import 'package:flutter_getx_template/core/utils/spacing.dart';
 import 'package:flutter_getx_template/core/wrappers/padding_wrapper.dart';
+import 'package:flutter_getx_template/features/auth/component/divider.dart';
 import 'package:flutter_getx_template/features/auth/controllers/auth_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -29,15 +32,16 @@ class SignInScreen extends StatelessWidget {
               SizedBox(width: Get.width),
               Text("Sign in", style: style.getHeading1()),
               SizedBox(height: 46.h),
+
+              // Form is used to validate the input fields
               Form(
                 child: Column(
                   spacing: 14.h,
                   children: [
-
-                    // Form is used to validate the input fields
                     Form(
                       key: _formKey,
                       child: Column(
+                        spacing: 14,
                         children: [
                           CustomInputField(
                             controller: auth.emailController,
@@ -47,8 +51,7 @@ class SignInScreen extends StatelessWidget {
                             controller: auth.passwordController,
                             title: "Password",
                           ),
-                          getVerticalSpace(12),
-
+                          getVerticalSpace(8),
                           // sign in button
                           CustomButton(
                             buttonTitle: "Sign in",
@@ -57,7 +60,25 @@ class SignInScreen extends StatelessWidget {
                         ],
                       ),
                     ),
+                    getVerticalSpace(10),
+                    ORDivider(),
 
+                    // Other sing in options
+                    getVerticalSpace(10),
+                    SizedBox(
+                      width: Get.width * 0.6,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          iconRender(url: AppIcons.facebookIcon),
+                          iconRender(url: AppIcons.googleIcon),
+                          iconRender(url: AppIcons.twitterIcon),
+                          iconRender(url: AppIcons.amazonIcon),
+                        ],
+                      ),
+                    ),
+                    getVerticalSpace(10),
+                    
                     // to navigate to sign up
                     Row(
                       spacing: 6,
