@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_template/Common/components/custom_button.dart';
 import 'package:flutter_getx_template/Common/components/custom_input_field.dart';
 import 'package:flutter_getx_template/core/utils/get_color.dart';
 import 'package:flutter_getx_template/core/utils/get_text_style.dart';
+import 'package:flutter_getx_template/core/utils/spacing.dart';
 import 'package:flutter_getx_template/core/wrappers/padding_wrapper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -28,6 +30,8 @@ class SignInScreen extends StatelessWidget {
                 children: [
                    CustomInputField(controller: TextEditingController(), title: "Email", ),
                    CustomInputField(controller: TextEditingController(), title: "Password", ),
+                   getVerticalSpace(12),
+                   CustomButton(buttonTitle: "Sign in", onTap: () {})
                 ],
               ),
              )
