@@ -29,6 +29,9 @@ class SignInScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+
+
+              // Sing in title
               SizedBox(width: Get.width),
               Text("Sign in", style: style.getHeading1()),
               SizedBox(height: 46.h),
@@ -78,7 +81,7 @@ class SignInScreen extends StatelessWidget {
                       ),
                     ),
                     getVerticalSpace(10),
-                    
+
                     // to navigate to sign up
                     Row(
                       spacing: 6,
