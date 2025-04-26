@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/Common/components/custom_button.dart';
 import 'package:flutter_getx_template/Common/components/custom_input_field.dart';
 import 'package:flutter_getx_template/core/constants/app_icons.dart';
-import 'package:flutter_getx_template/core/constants/image_const.dart';
 import 'package:flutter_getx_template/core/routes/app_pages.dart';
 import 'package:flutter_getx_template/core/utils/get_color.dart';
 import 'package:flutter_getx_template/core/utils/get_text_style.dart';
@@ -14,7 +13,6 @@ import 'package:flutter_getx_template/features/auth/component/divider.dart';
 import 'package:flutter_getx_template/features/auth/controllers/auth_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({super.key});
