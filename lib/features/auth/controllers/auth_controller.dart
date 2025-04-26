@@ -26,4 +26,17 @@ class AuthController extends GetxController {
 
     debugPrint("========>>>>>>>>>> body: $body");
   }
+
+  Future facebookSignInMethod() async {
+    debugPrint("============>>>>>>>>>>> Facebook Sign in");
+  }
+  Future googleSignInMethod() async {
+    debugPrint("============>>>>>>>>>>> Google Sign in");
+  }
+  Future twitterSignInMethod() async {
+    debugPrint("============>>>>>>>>>>> Twitter Sign in");
+  }
+  Future amazonSignInMethod() async {
+    debugPrint("============>>>>>>>>>>> Amazon Sign in");
+  }
 }
