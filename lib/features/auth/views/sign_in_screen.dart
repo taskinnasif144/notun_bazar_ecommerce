@@ -9,6 +9,7 @@ import 'package:flutter_getx_template/core/utils/get_text_style.dart';
 import 'package:flutter_getx_template/core/utils/icon_renderer.dart';
 import 'package:flutter_getx_template/core/utils/spacing.dart';
 import 'package:flutter_getx_template/core/wrappers/padding_wrapper.dart';
+import 'package:flutter_getx_template/features/auth/component/decorations.dart';
 import 'package:flutter_getx_template/features/auth/component/divider.dart';
 import 'package:flutter_getx_template/features/auth/controllers/auth_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,31 +33,9 @@ class SignInScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Decoration Container
-              Container(
-                width: Get.width,
-                height: 80.h,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14.r),
-                  image: DecorationImage(
-                    image: AssetImage(ImageConst.vapingImage),
-                    fit: BoxFit.cover,
-                    colorFilter: ColorFilter.mode(
-                      Colors.black.withOpacity(0.3),
-                      BlendMode.darken,
-                    ),
-                  ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Create your account", style: GoogleFonts.roboto(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 18.sp),),
-                      Text("Create your NotunBazar account", style: GoogleFonts.roboto(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 14.sp),)
-                    ],
-                  ),
-                ),
+              authHeaderDecoration(
+                title: "Sign in to Your Account",
+                subTitle: "Sign in to Your NotunBazar Account",
               ),
               getVerticalSpace(50),
 
