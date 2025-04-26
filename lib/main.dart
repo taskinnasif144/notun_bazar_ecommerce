@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,6 +14,9 @@ import 'core/themes/app_theme.dart';
 import 'core/utils/loading_controller.dart'; // Correct import
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // To stop orientation change, always fixed to vertical orientation
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await GetStorage.init();
   runApp(const MyApp());
 }

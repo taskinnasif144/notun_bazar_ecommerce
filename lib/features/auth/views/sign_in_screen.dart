@@ -121,7 +121,7 @@ class SignInScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Already have an account?",
+                          "Don't have an account?",
                           style: style.getBody3(),
                         ),
                         GestureDetector(
