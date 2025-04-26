@@ -25,6 +25,9 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      
+      
       body: SafeArea(
         child: PaddingWrapper(
           child: Column(
@@ -90,7 +93,7 @@ class SignInScreen extends StatelessWidget {
                     // Other sing in options
                     getVerticalSpace(10),
                     SizedBox(
-                      width: Get.width * 0.6,
+                      width: Get.width * 0.5,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -106,10 +109,7 @@ class SignInScreen extends StatelessWidget {
                             onTap: auth.twitterSignInMethod,
                             child: iconRender(url: AppIcons.twitterIcon),
                           ),
-                          GestureDetector(
-                            onTap: auth.amazonSignInMethod,
-                            child: iconRender(url: AppIcons.amazonIcon),
-                          ),
+                        
                         ],
                       ),
                     ),
@@ -120,10 +120,7 @@ class SignInScreen extends StatelessWidget {
                       spacing: 6,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          "Don't have an account?",
-                          style: style.getBody3(),
-                        ),
+                        Text("Don't have an account?", style: style.getBody3()),
                         GestureDetector(
                           onTap: () => Get.toNamed(Routes.signUpScreen),
                           child: Text("Sign Up", style: style.getBody3()),

@@ -104,8 +104,9 @@ class SignUpScreen extends StatelessWidget {
 
                       // Other sing in options
                       getVerticalSpace(6),
-                      SizedBox(
-                        width: Get.width * 0.6,
+                      SizedBox
+                      (
+                        width: Get.width * 0.5,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -121,10 +122,7 @@ class SignUpScreen extends StatelessWidget {
                               onTap: auth.twitterSignInMethod,
                               child: iconRender(url: AppIcons.twitterIcon),
                             ),
-                            GestureDetector(
-                              onTap: auth.amazonSignInMethod,
-                              child: iconRender(url: AppIcons.amazonIcon),
-                            ),
+                            
                           ],
                         ),
                       ),
