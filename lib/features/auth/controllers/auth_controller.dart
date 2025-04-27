@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_getx_template/Common/components/custom_snackbar.dart';
+import 'package:flutter_getx_template/core/loggers/debug_logger.dart';
+import 'package:flutter_getx_template/core/routes/app_pages.dart';
 import 'package:flutter_getx_template/core/utils/loading_controller.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +14,7 @@ class AuthController extends GetxController {
   // Text Controllers
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
 
@@ -29,13 +32,13 @@ class AuthController extends GetxController {
       "passwrod": passwordController.text,
     };
 
-    Get.find<LoadingController>().showLoading();
-    await Future.delayed(Duration(seconds: 2));
-    Get.find<LoadingController>().hideLoading();
+    loaderFunciton();
 
     showCustomSnackBar("Authorized");
 
-    debugPrint("========>>>>>>>>>> body: $body");
+    printMsg("body: $body");
+
+    clearControllers();
   }
 
   // Sign up with email and password method
@@ -46,33 +49,56 @@ class AuthController extends GetxController {
     }
 
     final body = {
+      "firstName": firstNameController.text,
+      "lastName": lastNameController.text,
       "email": emailController.text,
       "passwrod": passwordController.text,
     };
-
-    Get.find<LoadingController>().showLoading();
-    await Future.delayed(Duration(seconds: 2));
-    Get.find<LoadingController>().hideLoading();
+    loaderFunciton();
 
     showCustomSnackBar("Account Created");
 
-    debugPrint("========>>>>>>>>>> body: $body");
+    printMsg("body: $body");
+    clearControllers();
   }
 
   // On tap sign in options
   Future facebookSignInMethod() async {
-    debugPrint("============>>>>>>>>>>> Facebook Sign in");
+    printMsg("Facebook Sign in");
   }
 
   Future googleSignInMethod() async {
-    debugPrint("============>>>>>>>>>>> Google Sign in");
+    printMsg("Google Sign in");
   }
 
   Future twitterSignInMethod() async {
-    debugPrint("============>>>>>>>>>>> Twitter Sign in");
+    printMsg("Twitter Sign in");
   }
 
   // ================>>>>>>>>>>>>>>>>>> Verification Methods <<<<<<<<<<<<<<<<<<<===================
+
+  Future sendOtp(formKey) async {
+    // Validate the form
+    if (!formKey.currentState!.validate()) {
+      return;
+    }
+
+    final body =
+        isWithEmail.value
+            ? {"email": emailController.text}
+            : {"phone": phoneController.text};
+
+    if (!isWithEmail.value && phoneController.text.length < 5) {
+      showCustomSnackBar("Phone number cannot be empty", isError: true);
+      return;
+    }
+
+    printMsg("body: $body");
+    loaderFunciton();
+    Get.toNamed(Routes.verifyOtpScreen);
+
+    clearControllers();
+  }
 
   // Clear Controllers
   void clearControllers() {
@@ -87,6 +113,12 @@ class AuthController extends GetxController {
     passwordController.dispose();
     firstNameController.dispose();
     lastNameController.dispose();
+  }
+
+  void loaderFunciton() async {
+    Get.find<LoadingController>().showLoading();
+    await Future.delayed(Duration(seconds: 2));
+    Get.find<LoadingController>().hideLoading();
   }
 
   @override

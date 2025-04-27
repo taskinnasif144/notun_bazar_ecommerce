@@ -14,6 +14,9 @@ class VerifyEmailScreen extends StatelessWidget {
 
   final AuthController auth = Get.find<AuthController>();
 
+  // key to validate forms
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return ScreenWrapper(
@@ -24,27 +27,55 @@ class VerifyEmailScreen extends StatelessWidget {
         children: [
           // Title Message
           Center(
-            child: Obx(() => Text(
-              "Please verify with your ${auth.isWithEmail.value? "E-mail": "phone"}",
-              style: GetTextStyle().getHeading2(),
-            ),)
+            child: Obx(
+              () => Text(
+                "Please verify with your ${auth.isWithEmail.value ? "E-mail" : "phone"}",
+                style: GetTextStyle().getHeading2(),
+              ),
+            ),
           ),
 
           // Input field
           getVerticalSpace(20),
-          Obx(()=> SizedBox(
-              child: auth.isWithEmail.value? CustomInputField(controller: TextEditingController(), isEmail: true, hintText: "Verify with Email",) : CustomPhoneInputField(controller: TextEditingController())
-          ),),
-  
+          Obx(
+            () => Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  SizedBox(
+                    child:
+                        auth.isWithEmail.value
+                            ? CustomInputField(
+                              controller: auth.emailController,
+                              isEmail: true,
+                              hintText: "Verify with Email",
+                            )
+                            : CustomPhoneInputField(
+                              controller: auth.phoneController,
+                            ),
+                  ),
 
-          // Continue to Next Page
-          getVerticalSpace(20),
-          CustomButton(buttonTitle: "Next", onTap: () {}),
+                  // Continue to Next Page
+                  getVerticalSpace(20),
+                  CustomButton(buttonTitle: "Next", onTap: () {
+                    auth.sendOtp(_formKey);
+                  }),
+                ],
+              ),
+            ),
+          ),
 
           // change verification method
-          TextButton(onPressed: () {
-            auth.isWithEmail.value = !auth.isWithEmail.value;
-          }, child: Obx(()=> Text("Verify with ${auth.isWithEmail.value? "email": "phone"}"))),
+          TextButton(
+            onPressed: () {
+              auth.isWithEmail.value = !auth.isWithEmail.value;
+            },
+            child: Obx(
+              () => Text(
+                "Verify with ${auth.isWithEmail.value ? "email" : "phone"}",
+              ),
+            ),
+          ),
         ],
       ),
     );
