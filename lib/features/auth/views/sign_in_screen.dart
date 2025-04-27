@@ -58,6 +58,7 @@ class SignInScreen extends StatelessWidget {
                           CustomInputField(
                             controller: auth.passwordController,
                             title: "Password",
+                            isPassword: true,
                           ),
 
                           // Forget Password option

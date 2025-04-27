@@ -126,7 +126,7 @@ class CustomInputField extends StatelessWidget {
                         isObscure.value = !isObscure.value;
                       },
                       child: Icon(
-                        isObscure.value ? Icons.visibility : Icons.visibility,
+                        isObscure.value ? Icons.visibility : Icons.visibility_off,
                         size: 20,
                       ),
                     );

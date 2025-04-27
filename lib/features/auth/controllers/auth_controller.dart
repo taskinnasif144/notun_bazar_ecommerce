@@ -4,6 +4,7 @@ import 'package:flutter_getx_template/Common/components/custom_snackbar.dart';
 import 'package:flutter_getx_template/core/loggers/debug_logger.dart';
 import 'package:flutter_getx_template/core/routes/app_pages.dart';
 import 'package:flutter_getx_template/core/utils/loading_controller.dart';
+import 'package:flutter_getx_template/features/auth/views/new_password_screen.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
@@ -80,6 +81,7 @@ class AuthController extends GetxController {
 
   // ================>>>>>>>>>>>>>>>>>> Verification Methods <<<<<<<<<<<<<<<<<<<===================
 
+  // Send the otp to the user
   Future sendOtp(formKey) async {
     // Validate the form
     if (!formKey.currentState!.validate()) {
@@ -116,7 +118,25 @@ class AuthController extends GetxController {
   }
 
 
-  
+  // Create new password
+  Future updatePassword(formKey) async {
+    if(!formKey.currentState!.validate()) {
+      return;
+    }
+
+    if(passwordController.text != confirmPasswordController.text) {
+      showCustomSnackBar("Passwords do not match", isError: true);
+      return;
+    }
+
+    final body = {
+      "password": passwordController.text,
+    };
+
+    printMsg("body: $body");
+    await loaderFunciton();
+    Get.toNamed(Routes.signInScreen);
+  }
 
   // Clear Controllers
   void clearControllers() {

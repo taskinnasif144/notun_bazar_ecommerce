@@ -61,10 +61,12 @@ class SignUpScreen extends StatelessWidget {
                             CustomInputField(
                               controller: auth.emailController,
                               title: "Email",
+                              isEmail: true,
                             ),
                             CustomInputField(
                               controller: auth.passwordController,
                               title: "Password",
+                              isPassword: true,
                             ),
 
                             // Forget Password option
