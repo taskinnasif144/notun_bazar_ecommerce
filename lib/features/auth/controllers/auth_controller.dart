@@ -4,9 +4,10 @@ import 'package:flutter_getx_template/core/utils/loading_controller.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
-
   // Rx variables
   RxBool isTermsAccepted = false.obs;
+  // the method used for user verification
+  final RxBool isWithEmail = false.obs;
 
   // Text Controllers
   TextEditingController emailController = TextEditingController();
@@ -14,6 +15,9 @@ class AuthController extends GetxController {
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
 
+  // ================>>>>>>>>>>>>>>>>>> Sign Up Mehtods <<<<<<<<<<<<<<<<<<<===================
+
+  // Sign in with email and password Function
   Future signInMethod(formKey) async {
     // to trigger the form validation
     if (!formKey.currentState!.validate()) {
@@ -33,6 +37,8 @@ class AuthController extends GetxController {
 
     debugPrint("========>>>>>>>>>> body: $body");
   }
+
+  // Sign up with email and password method
   Future signUpMethod(formKey) async {
     // to trigger the form validation
     if (!formKey.currentState!.validate()) {
@@ -53,16 +59,39 @@ class AuthController extends GetxController {
     debugPrint("========>>>>>>>>>> body: $body");
   }
 
+  // On tap sign in options
   Future facebookSignInMethod() async {
     debugPrint("============>>>>>>>>>>> Facebook Sign in");
   }
+
   Future googleSignInMethod() async {
     debugPrint("============>>>>>>>>>>> Google Sign in");
   }
+
   Future twitterSignInMethod() async {
     debugPrint("============>>>>>>>>>>> Twitter Sign in");
   }
-  Future amazonSignInMethod() async {
-    debugPrint("============>>>>>>>>>>> Amazon Sign in");
+
+  // ================>>>>>>>>>>>>>>>>>> Verification Methods <<<<<<<<<<<<<<<<<<<===================
+
+  // Clear Controllers
+  void clearControllers() {
+    emailController.clear();
+    passwordController.clear();
+    firstNameController.clear();
+    lastNameController.clear();
+  }
+
+  void disposeControllers() {
+    emailController.dispose();
+    passwordController.dispose();
+    firstNameController.dispose();
+    lastNameController.dispose();
+  }
+
+  @override
+  void onClose() {
+    disposeControllers();
+    super.onClose();
   }
 }
