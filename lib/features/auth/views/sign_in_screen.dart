@@ -53,6 +53,7 @@ class SignInScreen extends StatelessWidget {
                           CustomInputField(
                             controller: auth.emailController,
                             title: "Email",
+                            isEmail: true,
                           ),
                           CustomInputField(
                             controller: auth.passwordController,
@@ -65,7 +66,10 @@ class SignInScreen extends StatelessWidget {
                             children: [
                               GestureDetector(
                                 onTap:
-                                    () => Get.toNamed(Routes.verifyEmailScreen),
+                                    () {
+                                      auth.clearControllers();
+                                      Get.toNamed(Routes.verifyEmailScreen);
+                                    },
                                 child: Text(
                                   "Forgot Password",
                                   style: style.getBody3(),

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_getx_template/Common/components/custom_snackbar.dart';
 import 'package:flutter_getx_template/core/loggers/debug_logger.dart';
@@ -17,6 +18,8 @@ class AuthController extends GetxController {
   TextEditingController phoneController = TextEditingController();
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
+  TextEditingController otpController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
 
   // ================>>>>>>>>>>>>>>>>>> Sign Up Mehtods <<<<<<<<<<<<<<<<<<<===================
 
@@ -32,7 +35,7 @@ class AuthController extends GetxController {
       "passwrod": passwordController.text,
     };
 
-    loaderFunciton();
+    await loaderFunciton();
 
     showCustomSnackBar("Authorized");
 
@@ -54,7 +57,7 @@ class AuthController extends GetxController {
       "email": emailController.text,
       "passwrod": passwordController.text,
     };
-    loaderFunciton();
+    await loaderFunciton();
 
     showCustomSnackBar("Account Created");
 
@@ -94,11 +97,26 @@ class AuthController extends GetxController {
     }
 
     printMsg("body: $body");
-    loaderFunciton();
+    await loaderFunciton();
     Get.toNamed(Routes.verifyOtpScreen);
-
-    clearControllers();
   }
+
+  // Verify the otp
+  Future verifyOtp(formkey) async {
+    if (otpController.text.length < 3) {
+      showCustomSnackBar("Please enter OTP", isError: true);
+      return;
+    }
+
+    final body = {"otp": otpController.text};
+    printMsg("Otp: $body");
+    await loaderFunciton();
+    clearControllers();
+    Get.toNamed(Routes.newPasswordScreen);
+  }
+
+
+  
 
   // Clear Controllers
   void clearControllers() {
@@ -106,6 +124,8 @@ class AuthController extends GetxController {
     passwordController.clear();
     firstNameController.clear();
     lastNameController.clear();
+    otpController.clear();
+    confirmPasswordController.clear();
   }
 
   void disposeControllers() {
@@ -113,9 +133,11 @@ class AuthController extends GetxController {
     passwordController.dispose();
     firstNameController.dispose();
     lastNameController.dispose();
+    otpController.dispose();
+    confirmPasswordController.dispose();
   }
 
-  void loaderFunciton() async {
+  Future loaderFunciton() async {
     Get.find<LoadingController>().showLoading();
     await Future.delayed(Duration(seconds: 2));
     Get.find<LoadingController>().hideLoading();
