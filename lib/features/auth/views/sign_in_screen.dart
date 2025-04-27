@@ -7,7 +7,7 @@ import 'package:flutter_getx_template/core/utils/get_color.dart';
 import 'package:flutter_getx_template/core/utils/get_text_style.dart';
 import 'package:flutter_getx_template/core/utils/icon_renderer.dart';
 import 'package:flutter_getx_template/core/utils/spacing.dart';
-import 'package:flutter_getx_template/core/wrappers/padding_wrapper.dart';
+import 'package:flutter_getx_template/core/wrappers/screen_wrapper.dart';
 import 'package:flutter_getx_template/features/auth/component/decorations.dart';
 import 'package:flutter_getx_template/features/auth/component/divider.dart';
 import 'package:flutter_getx_template/features/auth/controllers/auth_controller.dart';
@@ -24,10 +24,8 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: PaddingWrapper(
-          child: Column(
+    return ScreenWrapper(
+      child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Decoration Container
@@ -130,9 +128,8 @@ class SignInScreen extends StatelessWidget {
                 ),
               ),
             ],
-          ),
-        ),
-      ),
-    );
+          ), 
+      
+      );
   }
 }
