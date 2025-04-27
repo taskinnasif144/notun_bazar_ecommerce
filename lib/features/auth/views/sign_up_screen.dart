@@ -121,10 +121,6 @@ class SignUpScreen extends StatelessWidget {
                               onTap: auth.twitterSignInMethod,
                               child: iconRender(url: AppIcons.twitterIcon),
                             ),
-                            GestureDetector(
-                              onTap: auth.amazonSignInMethod,
-                              child: iconRender(url: AppIcons.amazonIcon),
-                            ),
                           ],
                         ),
                       ),

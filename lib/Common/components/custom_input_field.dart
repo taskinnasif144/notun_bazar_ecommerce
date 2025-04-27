@@ -54,10 +54,10 @@ class CustomInputField extends StatelessWidget {
         Obx(() {
           final obscure = isObscure.value;
           return Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 2.h),
             decoration: BoxDecoration(
               border: Border.all(color: AppColors.lightGray),
-              borderRadius: BorderRadius.circular(borderRadius?? 0),
+              borderRadius: BorderRadius.circular(borderRadius?? 12),
               color: background,
             ),
             // Row is used for prefix icons and suffix icons

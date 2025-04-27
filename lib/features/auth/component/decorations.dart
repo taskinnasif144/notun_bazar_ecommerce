@@ -14,7 +14,7 @@ Container authHeaderDecoration({required String title, required String subTitle}
         image: AssetImage(ImageConst.vapingImage),
         fit: BoxFit.cover,
         colorFilter: ColorFilter.mode(
-          Colors.black.withOpacity(0.3),
+          Colors.black.withAlpha((0.3 * 255).toInt()),
           BlendMode.darken,
         ),
       ),
