@@ -35,9 +35,6 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return GetMaterialApp(
           title: AppConstants.appName,
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
-          themeMode: ThemeMode.light,
           initialRoute: AppPages.initial,
           getPages: AppPages.routes,
           locale: Get.deviceLocale,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_template/core/constants/app_colors.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
@@ -8,8 +10,11 @@ class AppTheme {
     brightness: Brightness.light,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: Colors.white,
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.blue,
+    appBarTheme:  AppBarTheme(
+         titleTextStyle: GoogleFonts.roboto(
+        color: AppColors.darkGray
+      ),
+      backgroundColor: Colors.white,
       foregroundColor: Colors.white,
     ),
 
@@ -20,7 +25,10 @@ class AppTheme {
     brightness: Brightness.dark,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: Colors.grey[900],
-    appBarTheme: const AppBarTheme(
+    appBarTheme:  AppBarTheme(
+      titleTextStyle: GoogleFonts.roboto(
+        color: AppColors.darkGray
+      ),
       backgroundColor: Colors.blueGrey,
       foregroundColor: Colors.white,
     ),
