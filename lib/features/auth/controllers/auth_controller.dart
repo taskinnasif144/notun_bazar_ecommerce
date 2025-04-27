@@ -4,7 +4,6 @@ import 'package:flutter_getx_template/Common/components/custom_snackbar.dart';
 import 'package:flutter_getx_template/core/loggers/debug_logger.dart';
 import 'package:flutter_getx_template/core/routes/app_pages.dart';
 import 'package:flutter_getx_template/core/utils/loading_controller.dart';
-import 'package:flutter_getx_template/features/auth/views/new_password_screen.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
