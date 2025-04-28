@@ -26,9 +26,11 @@ class AuthController extends GetxController {
   // Sign in with email and password Function
   Future signInMethod(formKey) async {
     // to trigger the form validation
-    if (!formKey.currentState!.validate()) {
-      return;
-    }
+    // if (!formKey.currentState!.validate()) {
+    //   return;
+    // }
+
+    // TODO: Remove the comment on validation
 
     final body = {
       "email": emailController.text,
@@ -42,6 +44,8 @@ class AuthController extends GetxController {
     printMsg("body: $body");
 
     clearControllers();
+
+    Get.toNamed(Routes.homeScreen);
   }
 
   // Sign up with email and password method

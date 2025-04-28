@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_template/Common/components/custom_appbars.dart';
+import 'package:flutter_getx_template/core/wrappers/screen_wrapper.dart';
 
 import 'package:get/get.dart';
 
@@ -9,6 +11,8 @@ class HomeScreen extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("User Home")));
+    return ScreenWrapper(
+      appbar: customAppBar2(),
+      child: Column());
   }
 }
