@@ -7,7 +7,7 @@ import 'package:flutter_getx_template/core/utils/get_color.dart';
 import 'package:flutter_getx_template/core/utils/get_text_style.dart';
 import 'package:flutter_getx_template/core/utils/icon_renderer.dart';
 import 'package:flutter_getx_template/core/utils/spacing.dart';
-import 'package:flutter_getx_template/core/wrappers/padding_wrapper.dart';
+import 'package:flutter_getx_template/core/wrappers/screen_wrapper.dart';
 import 'package:flutter_getx_template/features/auth/component/decorations.dart';
 import 'package:flutter_getx_template/features/auth/component/divider.dart';
 import 'package:flutter_getx_template/features/auth/controllers/auth_controller.dart';
@@ -24,11 +24,7 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
-      body: SafeArea(
-        child: PaddingWrapper(
-          child: SingleChildScrollView(
+    return ScreenWrapper(child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -65,10 +61,12 @@ class SignUpScreen extends StatelessWidget {
                             CustomInputField(
                               controller: auth.emailController,
                               title: "Email",
+                              isEmail: true,
                             ),
                             CustomInputField(
                               controller: auth.passwordController,
                               title: "Password",
+                              isPassword: true,
                             ),
 
                             // Forget Password option
@@ -122,7 +120,6 @@ class SignUpScreen extends StatelessWidget {
                               onTap: auth.twitterSignInMethod,
                               child: iconRender(url: AppIcons.twitterIcon),
                             ),
-                            
                           ],
                         ),
                       ),
@@ -148,9 +145,6 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-        ),
-      ),
-    );
+          ),);
   }
 }
