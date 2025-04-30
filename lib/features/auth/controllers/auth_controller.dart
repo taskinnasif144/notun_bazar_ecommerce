@@ -45,7 +45,7 @@ class AuthController extends GetxController {
 
     clearControllers();
 
-    Get.toNamed(Routes.homeScreen);
+    Get.toNamed(Routes.mainUserPage);
   }
 
   // Sign up with email and password method

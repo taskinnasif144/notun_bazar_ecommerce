@@ -20,7 +20,6 @@ class GetColor {
   Color getPrimary() {
     return AppColors.primaryColor;
   }
-
   // Success color method
   Color getSucessColor() {
     return AppColors.sucessColor;

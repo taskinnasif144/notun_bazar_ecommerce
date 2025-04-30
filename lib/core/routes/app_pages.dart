@@ -15,6 +15,7 @@ import 'package:flutter_getx_template/features/user/home/views/category_list_scr
 import 'package:flutter_getx_template/features/user/home/views/home_screen.dart';
 import 'package:flutter_getx_template/features/user/home/views/hot_deals_list_screen.dart';
 import 'package:flutter_getx_template/features/user/home/views/product_details_screen.dart';
+import 'package:flutter_getx_template/features/user/main_user_screen.dart';
 import 'package:flutter_getx_template/features/user/messages/bindings/messages_bindings.dart';
 import 'package:flutter_getx_template/features/user/messages/views/messages_screen.dart';
 import 'package:get/get.dart';
@@ -58,6 +59,11 @@ class AppPages {
     ),
 
     // For User
+     GetPage(
+      name: Routes.mainUserPage,
+      page: () => MainUserScreen(),
+      binding: HomeBinding(),
+    ),
 
     // home features
     GetPage(

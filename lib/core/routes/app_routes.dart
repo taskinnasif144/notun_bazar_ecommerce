@@ -10,6 +10,7 @@ abstract class Routes {
   static const newPasswordScreen = '/new-password';
 
   // For Users
+  static const mainUserPage = '/main-user-page';
 
   // home feature
   static const homeScreen = '/home';
