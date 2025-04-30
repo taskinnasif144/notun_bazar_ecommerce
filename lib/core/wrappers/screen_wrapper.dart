@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_template/Common/components/custom_drawer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ScreenWrapper extends StatelessWidget {
-  const ScreenWrapper({super.key, required this.child, this.appbar});
-  final PreferredSizeWidget? appbar;
-  final Widget child;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+Scaffold screemWrapper({appbar, required child, scaffoldKey}) {
+  return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: appbar,
+      key: scaffoldKey,
+      drawer: myDrawer(),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
@@ -17,5 +15,4 @@ class ScreenWrapper extends StatelessWidget {
         ),
       ),
     );
-  }
 }
