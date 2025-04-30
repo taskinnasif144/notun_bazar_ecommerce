@@ -24,7 +24,7 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenWrapper(
+    return screemWrapper(
       child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

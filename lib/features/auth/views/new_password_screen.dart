@@ -17,7 +17,7 @@ class NewPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenWrapper(
+    return screemWrapper(
       appbar: customAppBar1(title: "New Passsword"),
       child: Column(
         spacing: 20,

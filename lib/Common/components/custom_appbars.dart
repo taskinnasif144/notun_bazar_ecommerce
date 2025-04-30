@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_template/Common/Controllers/sidebar_controllers.dart';
 import 'package:flutter_getx_template/Common/components/icon_alert_counter.dart';
 import 'package:flutter_getx_template/core/constants/app_icons.dart';
 import 'package:flutter_getx_template/core/constants/image_const.dart';
@@ -30,7 +31,9 @@ PreferredSize customAppBar2() {
            Row(
             spacing: 10.w,
              children: [
-               Icon(Icons.menu),
+               GestureDetector(
+                onTap: () => Get.find<SidebarController>().openDrawer(),
+                child: Icon(Icons.menu)),
                imageRender(url: ImageConst.logo, width: 36, height: 36)
              ],
            ),

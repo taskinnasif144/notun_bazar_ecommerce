@@ -17,7 +17,7 @@ class VerifyOtpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenWrapper(
+    return screemWrapper(
       appbar: customAppBar1(title: "Verify Otp"),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
