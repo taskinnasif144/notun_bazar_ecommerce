@@ -38,11 +38,11 @@ PreferredSize customAppBar2() {
             spacing: 6.w,
             children: [
               IconAlertCounter(
-                icon: AppIcons.notificationIcon,
+                icon: iconRender(url: AppIcons.notificationIcon, size: 24),
                 count: 0,
               ),
               IconAlertCounter(
-                icon: AppIcons.cartIcon,
+                icon: iconRender(url: AppIcons.cartIcon, size: 24),
                 count: 5,
               ),
             ],
@@ -61,7 +61,7 @@ class IconAlertCounter extends StatelessWidget {
     required this.count,
   });
 
-  final String icon;
+  final Widget icon;
   final int count;
 
   @override
@@ -70,7 +70,7 @@ class IconAlertCounter extends StatelessWidget {
       children: [
         Padding(
           padding:  EdgeInsets.symmetric(vertical: 6.h,horizontal: 6.w),
-          child: iconRender(url: icon, size: 24),
+          child: icon,
         ),
         if(count > 0)
         Positioned(
