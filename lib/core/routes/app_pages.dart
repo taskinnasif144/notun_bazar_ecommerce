@@ -5,6 +5,8 @@ import 'package:flutter_getx_template/features/auth/views/sign_up_screen.dart';
 import 'package:flutter_getx_template/features/auth/views/splash_screen.dart';
 import 'package:flutter_getx_template/features/auth/views/verify_email_screen.dart';
 import 'package:flutter_getx_template/features/auth/views/verify_otp_screen.dart';
+import 'package:flutter_getx_template/features/notificaitons/Views/notificaitons_screen.dart';
+import 'package:flutter_getx_template/features/notificaitons/bindings/notification_bindings.dart';
 import 'package:flutter_getx_template/features/user/cart/bindings/cart_bindings.dart';
 import 'package:flutter_getx_template/features/user/cart/views/cart_screen.dart';
 import 'package:flutter_getx_template/features/user/favourite/bindings/favourites_bindings.dart';
@@ -56,6 +58,13 @@ class AppPages {
       name: Routes.newPasswordScreen,
       page: () => NewPasswordScreen(),
       binding: AuthBindings(),
+    ),
+
+    // notification feature
+    GetPage(
+      name: Routes.notificationScreen,
+      page: () => NotificaitonsScreen(),
+      binding: NotificationBindings(),
     ),
 
     // For User

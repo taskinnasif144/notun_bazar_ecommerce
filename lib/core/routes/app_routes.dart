@@ -9,6 +9,9 @@ abstract class Routes {
   static const verifyOtpScreen = '/verify-otp';
   static const newPasswordScreen = '/new-password';
 
+  // notification feature
+  static const notificationScreen = "/notificatin_screen";
+
   // For Users
   static const mainUserPage = '/main-user-page';
 
