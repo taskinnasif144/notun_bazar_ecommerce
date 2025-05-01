@@ -11,7 +11,7 @@ class HomeScreen extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return screemWrapper(
-      scaffoldKey: Get.find<SidebarController>().scaffoldKey,
+      scaffoldKey: Get.find<SidebarController>().scaffoldHomeKey,
       appbar: customAppBar2(),
       child: Column());
   }
