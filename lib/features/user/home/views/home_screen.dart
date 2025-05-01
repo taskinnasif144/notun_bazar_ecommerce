@@ -39,7 +39,6 @@ class HomeScreen extends GetView<HomeController> {
         
             // The categories list rendered horizontally
             categoryDivider(context, title: "Shop by Category"),
-
             SizedBox(
               height: 100,
               child: ListView.builder(
@@ -53,36 +52,44 @@ class HomeScreen extends GetView<HomeController> {
                     ),
               ),
             ),
+
+            categoryDivider(context, title: "Best Selling", onTap: (){
+              // TODO: go to best selling
+            })
+
           ],
         ),
       ),
     );
   }
 
-  Row categoryDivider(BuildContext context, {required title, VoidCallback? onTap}) {
-    return Row(
-            spacing: 12,
-            children: [
-              Text(
-                "Shop By Category",
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  color: Theme.of(context).colorScheme.onPrimary,
-                ),
-              ),
-              Expanded(child: Divider()),
-              if(onTap != null)
-              GestureDetector(
-                onTap: onTap,
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Theme.of(context).colorScheme.primary),
-                    borderRadius: BorderRadius.circular(100)
+  Widget categoryDivider(BuildContext context, {required title, VoidCallback? onTap}) {
+    return Padding(
+      padding:  EdgeInsets.only(top: 8.h),
+      child: Row(
+              spacing: 12,
+              children: [
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: Theme.of(context).colorScheme.onPrimary,
                   ),
-                  child: Text("See All", style: Theme.of(context).textTheme.bodyMedium,)),
-              ),
-            ],
-          );
+                ),
+                Expanded(child: Divider(height: 1, color: Theme.of(context).colorScheme.primary,)),
+                if(onTap != null)
+                GestureDetector(
+                  onTap: onTap,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Theme.of(context).colorScheme.primary),
+                      borderRadius: BorderRadius.circular(100)
+                    ),
+                    child: Text("See All", style: Theme.of(context).textTheme.bodyMedium,)),
+                ),
+              ],
+            ),
+    );
   }
 }
 
