@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/Common/Controllers/sidebar_controllers.dart';
 import 'package:flutter_getx_template/Common/components/carousel_component.dart';
 import 'package:flutter_getx_template/Common/components/custom_appbars.dart';
+import 'package:flutter_getx_template/Common/components/product_card.dart';
 import 'package:flutter_getx_template/core/loggers/debug_logger.dart';
 import 'package:flutter_getx_template/core/utils/image_renderer.dart';
+import 'package:flutter_getx_template/core/utils/spacing.dart';
 import 'package:flutter_getx_template/core/wrappers/screen_wrapper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -35,8 +37,7 @@ class HomeScreen extends GetView<HomeController> {
                 },
               ),
             ),
-          
-        
+
             // The categories list rendered horizontally
             categoryDivider(context, title: "Shop by Category"),
             SizedBox(
@@ -53,42 +54,66 @@ class HomeScreen extends GetView<HomeController> {
               ),
             ),
 
-            categoryDivider(context, title: "Best Selling", onTap: (){
-              // TODO: go to best selling
-            })
-
+            // renders the products under best selling
+            categoryDivider(
+              context,
+              title: "Best Selling",
+              onTap: () {
+                // TODO: go to best selling
+              },
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [ProductCard(), ProductCard()],
+            ),
+            getVerticalSpace(100),
           ],
         ),
       ),
     );
   }
 
-  Widget categoryDivider(BuildContext context, {required title, VoidCallback? onTap}) {
+  Widget categoryDivider(
+    BuildContext context, {
+    required title,
+    VoidCallback? onTap,
+  }) {
     return Padding(
-      padding:  EdgeInsets.only(top: 8.h),
+      padding: EdgeInsets.only(top: 8.h),
       child: Row(
-              spacing: 12,
-              children: [
-                Text(
-                  title,
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    color: Theme.of(context).colorScheme.onPrimary,
-                  ),
-                ),
-                Expanded(child: Divider(height: 1, color: Theme.of(context).colorScheme.primary,)),
-                if(onTap != null)
-                GestureDetector(
-                  onTap: onTap,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Theme.of(context).colorScheme.primary),
-                      borderRadius: BorderRadius.circular(100)
-                    ),
-                    child: Text("See All", style: Theme.of(context).textTheme.bodyMedium,)),
-                ),
-              ],
+        spacing: 12,
+        children: [
+          Text(
+            title,
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+              color: Theme.of(context).colorScheme.onPrimary,
             ),
+          ),
+          Expanded(
+            child: Divider(
+              height: 1,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          ),
+          if (onTap != null)
+            GestureDetector(
+              onTap: onTap,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                  borderRadius: BorderRadius.circular(100),
+                ),
+                child: Text(
+                  "See All",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ),
+            ),
+        ],
+      ),
     );
   }
 }
