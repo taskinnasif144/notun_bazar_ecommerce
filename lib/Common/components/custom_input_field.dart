@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_getx_template/core/constants/app_colors.dart';
-import 'package:flutter_getx_template/core/constants/app_text_style.dart';
 import 'package:flutter_getx_template/core/utils/regex_validators.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -41,20 +40,20 @@ class CustomInputField extends StatelessWidget {
 
   // To track obscure and unobsure state of password text
   final RxBool isObscure = true.obs;
-
+  final theme = Theme.of(Get.context!);
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // the title with the sizedbox will only be rendered when it is provided
-        if (title != null) Text(title!, style: AppTextStyle.bodyStyle1),
+        if (title != null) Text(title!, style: theme.textTheme.bodyMedium ),
         if (title != null) SizedBox(height: 8.h),
         // To design the text field container is used
         Obx(() {
           final obscure = isObscure.value;
           return Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 2.h),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 1.h),
             decoration: BoxDecoration(
               border: Border.all(color: AppColors.lightGray),
               borderRadius: BorderRadius.circular(borderRadius?? 12),
@@ -81,6 +80,7 @@ class CustomInputField extends StatelessWidget {
                     controller: controller,
                     // To remove default styling and setting hint text
                     decoration: InputDecoration(
+                      hintStyle: Theme.of(context).textTheme.bodyMedium,
                       hintText: hintText ?? title ?? "",
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.zero,

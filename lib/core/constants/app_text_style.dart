@@ -5,24 +5,24 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyle {
 
-  static TextStyle headerStyle1 = GoogleFonts.roboto(
+  static TextStyle headerTextSmall = GoogleFonts.roboto(
     fontSize: 24.sp,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w700,
     color: Color(0xFF222222),
   );
-  static TextStyle headerStyle2 = GoogleFonts.roboto(
+  static TextStyle bodyTextLarge= GoogleFonts.roboto(
     fontSize: 18.sp,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w700,
     color: Color(0xFF222222),
   );
   
-  static TextStyle bodyStyle1 = GoogleFonts.roboto(
+  static TextStyle bodyTextMedium = GoogleFonts.roboto(
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
     color: Color(0xFF222222),
   );
 
-  static TextStyle bodyStyle3 = GoogleFonts.roboto(
+  static TextStyle bodyTextSmall = GoogleFonts.roboto(
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
     color: AppColors.gray,

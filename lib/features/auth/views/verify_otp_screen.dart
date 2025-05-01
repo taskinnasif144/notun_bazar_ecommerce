@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_getx_template/Common/components/custom_appbars.dart';
 import 'package:flutter_getx_template/Common/components/custom_button.dart';
-import 'package:flutter_getx_template/core/utils/get_text_style.dart';
 import 'package:flutter_getx_template/core/wrappers/screen_wrapper.dart';
 import 'package:flutter_getx_template/features/auth/controllers/auth_controller.dart';
 import 'package:get/get.dart';
@@ -27,7 +26,7 @@ class VerifyOtpScreen extends StatelessWidget {
           Center(
             child: Text(
               "An Otp has been sent to ${auth.isWithEmail.value ? auth.emailController.text : auth.phoneController.text}",
-              style: GetTextStyle().getHeading2(),
+              style:Theme.of(context).textTheme.bodyLarge,
             ),
           ),
 

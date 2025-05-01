@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_template/core/utils/get_color.dart';
-import 'package:flutter_getx_template/core/utils/get_text_style.dart';
 import 'package:flutter_getx_template/core/utils/image_renderer.dart';
 import 'package:flutter_getx_template/core/utils/spacing.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 Drawer myDrawer() {
-  return Drawer(
+    final theme = Theme.of(Get.context!);
+    return Drawer(
     child: Column(
       children: [
         // To display the user information (image and name)
@@ -17,7 +16,7 @@ Drawer myDrawer() {
           decoration: BoxDecoration(
             border: Border(
               // border bottom to sperate the sections
-              bottom: BorderSide(color: GetColor().getPrimary(), width: 1.0),
+              bottom: BorderSide(color: theme.colorScheme.primary , width: 1.0),
             ),
           ),
           child: Column(
@@ -36,17 +35,42 @@ Drawer myDrawer() {
                 ),
               ),
               // user name
-              Text("Dewam Nasif", style: GetTextStyle().getHeading2()),
+              Text("Dewam Nasif", style:theme.textTheme.bodyLarge),
               getHorizeontalSpace(40),
             ],
           ),
         ),
         // Below the sidebar navigations are placed
         Expanded(child: ListView(
-          children: [
-            ListTile(
-              title: Text("Travel", style: GetTextStyle().getBody1(),),
-            )
+            children: [
+            TextButton(
+              onPressed: () {},
+              child: Text("Travel", style: theme.textTheme.bodyMedium),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text("Electronics", style: theme.textTheme.bodyMedium),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text("Fashion & Beauty", style: theme.textTheme.bodyMedium),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text("Sports & Gym", style: theme.textTheme.bodyMedium),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text("Kids & Toys", style: theme.textTheme.bodyMedium),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text("Technology", style: theme.textTheme.bodyMedium),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text("Gadgets", style: theme.textTheme.bodyMedium),
+            ),
           ],
         ))
       ],

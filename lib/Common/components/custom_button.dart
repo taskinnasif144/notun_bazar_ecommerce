@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/core/constants/app_colors.dart';
-import 'package:flutter_getx_template/core/utils/get_color.dart';
-import 'package:flutter_getx_template/core/utils/get_text_style.dart';
 import 'package:flutter_getx_template/core/utils/loading_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -29,14 +27,13 @@ class CustomButton extends StatelessWidget {
   final bool isActive;
   final bool isLoading;
 
-  final GetColor color = GetColor();
-  final GetTextStyle text = GetTextStyle();
+
 
   final LoadingController loader = Get.find<LoadingController>();
 
   @override
   Widget build(BuildContext context) {
-   
+   final theme = Theme.of(context);
     return InkWell(
       onTap: onTap,
       child: FractionallySizedBox(
@@ -44,9 +41,9 @@ class CustomButton extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 10.h),
           decoration: BoxDecoration(
-            color: (isFilled && !isRed) ? color.getPrimary() : (isFilled && isRed) ? color.getDangerColor(): null ,
+            color: (isFilled && !isRed) ? theme.colorScheme.primary : (isFilled && isRed) ? theme.colorScheme.error: null ,
             border: Border.all(
-              color: isRed ? color.getDangerColor() : color.getPrimary(),
+              color: isRed ? theme.colorScheme.error : theme.colorScheme.primary,
             ),
             borderRadius: BorderRadius.circular(isRounded ? 100 : 12),
           ),
@@ -61,13 +58,13 @@ class CustomButton extends StatelessWidget {
                         )
                         : Text(
                           buttonTitle,
-                          style:text.getBody1().copyWith(
+                          style: theme.textTheme.bodyMedium!.copyWith(
                             color:
                                 isFilled
                                     ? Colors.white
                                     : isRed
                                     ? AppColors.dangerColor
-                                    : color.getPrimary(),
+                                    : theme.colorScheme.primary,
                           ),
                         ),
               );

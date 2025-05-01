@@ -3,7 +3,6 @@ import 'package:flutter_getx_template/Common/components/custom_appbars.dart';
 import 'package:flutter_getx_template/Common/components/custom_button.dart';
 import 'package:flutter_getx_template/Common/components/custom_input_field.dart';
 import 'package:flutter_getx_template/Common/components/custom_phone_input.dart';
-import 'package:flutter_getx_template/core/utils/get_text_style.dart';
 import 'package:flutter_getx_template/core/utils/spacing.dart';
 import 'package:flutter_getx_template/core/wrappers/screen_wrapper.dart';
 import 'package:flutter_getx_template/features/auth/controllers/auth_controller.dart';
@@ -30,7 +29,7 @@ class VerifyEmailScreen extends StatelessWidget {
             child: Obx(
               () => Text(
                 "Please verify with your ${auth.isWithEmail.value ? "E-mail" : "phone"}",
-                style: GetTextStyle().getHeading2(),
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),
           ),

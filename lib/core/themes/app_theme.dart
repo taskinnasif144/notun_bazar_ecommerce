@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/core/constants/app_colors.dart';
+import 'package:flutter_getx_template/core/constants/app_text_style.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,14 +11,26 @@ class AppTheme {
     brightness: Brightness.light,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: Colors.white,
-    appBarTheme:  AppBarTheme(
-         titleTextStyle: GoogleFonts.roboto(
-        color: AppColors.darkGray
-      ),
+
+    // set colors
+    colorScheme: const ColorScheme(
+      primary: AppColors.primaryColor,
+      secondary: AppColors.secondary,
+      surface: Colors.white,
+      error:  AppColors.dangerColor,
+      onPrimary: Colors.white,
+      onSecondary: Colors.black,
+      onSurface: Colors.black,
+      onError: Colors.white,
+      brightness: Brightness.light,
+    ),
+
+    // Appbar theme
+    appBarTheme: AppBarTheme(
+      titleTextStyle: GoogleFonts.roboto(color: AppColors.darkGray),
       backgroundColor: Colors.white,
       foregroundColor: Colors.white,
     ),
-
   );
 
   static final ThemeData darkTheme = ThemeData(
@@ -25,30 +38,29 @@ class AppTheme {
     brightness: Brightness.dark,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: Colors.grey[900],
-    appBarTheme:  AppBarTheme(
-      titleTextStyle: GoogleFonts.roboto(
-        color: AppColors.darkGray
-      ),
+    appBarTheme: AppBarTheme(
+      titleTextStyle: GoogleFonts.roboto(color: AppColors.darkGray),
       backgroundColor: Colors.blueGrey,
       foregroundColor: Colors.white,
     ),
   );
+
+
 
   static final ThemeData ecoTheme = ThemeData(
     primarySwatch: Colors.green,
     brightness: Brightness.light,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: Colors.green[50],
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.green,
-      foregroundColor: Colors.white,
+
+    // Text themes
+    textTheme: TextTheme(
+      headlineSmall: AppTextStyle.headerTextSmall,
+      bodyLarge: AppTextStyle.bodyTextLarge,
+      bodyMedium: AppTextStyle.bodyTextMedium,
+      bodySmall: AppTextStyle.bodyTextSmall
     ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.green[700],
-        foregroundColor: Colors.white,
-      ),
-    ),
+
   );
 }
 

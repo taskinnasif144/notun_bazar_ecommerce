@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/Common/components/icon_alert_counter.dart';
 import 'package:flutter_getx_template/core/constants/app_icons.dart';
-import 'package:flutter_getx_template/core/utils/get_color.dart';
 import 'package:flutter_getx_template/core/utils/icon_renderer.dart';
 
 class BottomNavigation extends StatelessWidget {
   final Function(int) onChanged;
   final int menuIndex;
-  BottomNavigation({
+ const  BottomNavigation({
     super.key,
     required this.menuIndex,
     required this.onChanged,
   });
 
-  final GetColor color = GetColor();
+
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return BottomNavigationBar(
       // to apply shifting animation while navigation
       type: BottomNavigationBarType.shifting,
       backgroundColor: const Color.fromARGB(255, 242, 242, 242),
       // Colors for the icon in different states (selected unselected)
-      selectedItemColor: color.getPrimary(),
-      unselectedItemColor: color.getPrimary(),
+      selectedItemColor: theme.colorScheme.primary,
+      unselectedItemColor: theme.colorScheme.primary,
       // style for the texts
-      unselectedLabelStyle: TextStyle(color: color.getPrimary()),
+      unselectedLabelStyle: TextStyle(color: theme.colorScheme.primary),
       // the currently selected index that is being set by the page view onchange method
       currentIndex: menuIndex,
       // the icons for the navigation bar (selected and unselcted)
@@ -43,11 +43,11 @@ class BottomNavigation extends StatelessWidget {
               menuIndex == 1
                   ? iconRender(
                     url: AppIcons.heartIcon,
-                    color: color.getPrimary(),
+                    color: theme.colorScheme.primary,
                   )
                   : iconRender(
                     url: AppIcons.heartOutlinedIcon,
-                    color: color.getPrimary(),
+                    color: theme.colorScheme.primary,
                   ),
           label: 'Favourite',
         ),
@@ -57,11 +57,11 @@ class BottomNavigation extends StatelessWidget {
                 menuIndex == 2
                     ? iconRender(
                       url: AppIcons.chatIcon,
-                      color: color.getPrimary(),
+                      color: theme.colorScheme.primary,
                     )
                     : iconRender(
                       url: AppIcons.chatOutlinedIcon,
-                      color: color.getPrimary(),
+                      color: theme.colorScheme.primary,
                     ),
             count: 5,
           ),
@@ -72,11 +72,11 @@ class BottomNavigation extends StatelessWidget {
               menuIndex == 3
                   ? iconRender(
                     url: AppIcons.personICon,
-                    color: color.getPrimary(),
+                    color: theme.colorScheme.primary,
                   )
                   : iconRender(
                     url: AppIcons.personOutlinedIcon,
-                    color: color.getPrimary(),
+                    color: theme.colorScheme.primary,
                   ),
           label: 'Profile',
         ),

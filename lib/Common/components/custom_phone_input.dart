@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_getx_template/core/constants/app_colors.dart';
-import 'package:flutter_getx_template/core/constants/app_text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
@@ -14,12 +13,13 @@ class CustomPhoneInputField extends StatelessWidget {
   final TextEditingController controller;
   final String? title;
 
-  @override
+  
+  @override 
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (title != null) Text(title!, style: AppTextStyle.bodyStyle1),
+        if (title != null) Text(title!, style: Theme.of(context).textTheme.bodyMedium),
         if (title != null) SizedBox(height: 8.h),
         Container(
           padding: EdgeInsets.only(left: 6.w, bottom: 6.h),
