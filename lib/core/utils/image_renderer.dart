@@ -20,6 +20,28 @@ Widget imageRender({
         width: width.w,
         height: height.h,
         fit: BoxFit.cover,
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) {
+        return child;
+          }
+          return Center(
+        child: CircularProgressIndicator(
+          value: loadingProgress.expectedTotalBytes != null
+          ? loadingProgress.cumulativeBytesLoaded /
+              (loadingProgress.expectedTotalBytes ?? 1)
+          : null,
+        ),
+          );
+        },
+        errorBuilder: (context, error, stackTrace) {
+          return Center(
+        child: Icon(
+          Icons.error,
+          color: Colors.red,
+          size: width.w * 0.5,
+        ),
+          );
+        },
       ),
     );
   } else {
