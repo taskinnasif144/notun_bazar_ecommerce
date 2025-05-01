@@ -42,14 +42,14 @@ PreferredSize customAppBar2() {
               GestureDetector(
                 onTap: () => Get.toNamed(Routes.notificationScreen),
                 child: IconAlertCounter(
-                  icon: iconRender(url: AppIcons.notificationIcon, size: 24),
+                  icon: iconRender(url: AppIcons.notificationIcon, size: 18),
                   count: 0,
                 ),
               ),
               GestureDetector(
                 onTap: ()=> Get.toNamed(Routes.cartScreen),
                 child: IconAlertCounter(
-                  icon: iconRender(url: AppIcons.cartIcon, size: 24),
+                  icon: iconRender(url: AppIcons.cartIcon, size: 18),
                   count: 5,
                 ),
               ),

@@ -18,7 +18,7 @@ class AppTheme {
       secondary: AppColors.secondary,
       surface: Colors.white,
       error:  AppColors.dangerColor,
-      onPrimary: Colors.white,
+      onPrimary: AppColors.darkGray,
       onSecondary: Colors.black,
       onSurface: Colors.black,
       onError: Colors.white,
@@ -29,7 +29,14 @@ class AppTheme {
     appBarTheme: AppBarTheme(
       titleTextStyle: GoogleFonts.roboto(color: AppColors.darkGray),
       backgroundColor: Colors.white,
-      foregroundColor: Colors.white,
+    ),
+
+    // Text themes
+    textTheme: TextTheme(
+      headlineSmall: AppTextStyle.headerTextSmall,
+      bodyLarge: AppTextStyle.bodyTextLarge,
+      bodyMedium: AppTextStyle.bodyTextMedium,
+      bodySmall: AppTextStyle.bodyTextSmall
     ),
   );
 
@@ -53,13 +60,7 @@ class AppTheme {
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: Colors.green[50],
 
-    // Text themes
-    textTheme: TextTheme(
-      headlineSmall: AppTextStyle.headerTextSmall,
-      bodyLarge: AppTextStyle.bodyTextLarge,
-      bodyMedium: AppTextStyle.bodyTextMedium,
-      bodySmall: AppTextStyle.bodyTextSmall
-    ),
+
 
   );
 }

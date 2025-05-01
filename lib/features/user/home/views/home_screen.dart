@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/Common/Controllers/sidebar_controllers.dart';
 import 'package:flutter_getx_template/Common/components/carousel_component.dart';
 import 'package:flutter_getx_template/Common/components/custom_appbars.dart';
+import 'package:flutter_getx_template/core/loggers/debug_logger.dart';
 import 'package:flutter_getx_template/core/utils/image_renderer.dart';
-import 'package:flutter_getx_template/core/utils/spacing.dart';
 import 'package:flutter_getx_template/core/wrappers/screen_wrapper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -16,41 +16,73 @@ class HomeScreen extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    printMsg("onPrimary: ${Theme.of(context).colorScheme.onPrimary}");
     return screemWrapper(
       // home scaffold key to open the app drawer from home page
       scaffoldKey: Get.find<SidebarController>().scaffoldHomeKey,
       appbar: customAppBar2(),
-      child: Column(
-        children: [
-          // The carousel component of the home screen
-          Obx(
-            () => CarouselOptionsComponent(
-              images: home.carouselItems,
-              selectedIndex: home.selectedCarousel.value,
-              onPageChange: (index, reason) {
-                home.selectedCarousel.value = index.toDouble();
-              },
+      child: SingleChildScrollView(
+        child: Column(
+          spacing: 20,
+          children: [
+            // The carousel component of the home screen
+            Obx(
+              () => CarouselOptionsComponent(
+                images: home.carouselItems,
+                selectedIndex: home.selectedCarousel.value,
+                onPageChange: (index, reason) {
+                  home.selectedCarousel.value = index.toDouble();
+                },
+              ),
             ),
-          ),
-          getVerticalSpace(20),
+          
+        
+            // The categories list rendered horizontally
+            categoryDivider(context, title: "Shop by Category"),
 
-          // The categories list rendered horizontally
-          SizedBox(
-            height: 100,
-            child: ListView.builder(
-              // responsible for horizontal scroll
-              scrollDirection: Axis.horizontal,
-              itemCount: home.categories.length,
-              itemBuilder:
-                  (context, index) => ProductCategory(
-                    image: home.categories[index].imageUrl,
-                    title: home.categories[index].title,
-                  ),
+            SizedBox(
+              height: 100,
+              child: ListView.builder(
+                // responsible for horizontal scroll
+                scrollDirection: Axis.horizontal,
+                itemCount: home.categories.length,
+                itemBuilder:
+                    (context, index) => ProductCategory(
+                      image: home.categories[index].imageUrl,
+                      title: home.categories[index].title,
+                    ),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
+  }
+
+  Row categoryDivider(BuildContext context, {required title, VoidCallback? onTap}) {
+    return Row(
+            spacing: 12,
+            children: [
+              Text(
+                "Shop By Category",
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+              ),
+              Expanded(child: Divider()),
+              if(onTap != null)
+              GestureDetector(
+                onTap: onTap,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Theme.of(context).colorScheme.primary),
+                    borderRadius: BorderRadius.circular(100)
+                  ),
+                  child: Text("See All", style: Theme.of(context).textTheme.bodyMedium,)),
+              ),
+            ],
+          );
   }
 }
 
@@ -81,5 +113,3 @@ class ProductCategory extends StatelessWidget {
     );
   }
 }
-
-

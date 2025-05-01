@@ -17,6 +17,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // To stop orientation change, always fixed to vertical orientation
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  // ScreenUtil initialization moved to the builder method
   await GetStorage.init();
   runApp(const MyApp());
 }
@@ -28,11 +30,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // Initialize the ThemeController
     Get.put(ThemeController());
+    ScreenUtil.init(context); 
+  
     return ScreenUtilInit(
       designSize: const Size(393, 852),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
+        ScreenUtil.init(context);
         return GetMaterialApp(
           title: AppConstants.appName,
           initialRoute: AppPages.initial,
@@ -46,6 +51,8 @@ class MyApp extends StatelessWidget {
           ],
           supportedLocales: AppLocalizations.supportedLocales,
           debugShowCheckedModeBanner: false,
+          theme: AppTheme.lightTheme,
+          themeMode: ThemeMode.light,
           builder: (context, widget) {
             return Stack(
               children: [

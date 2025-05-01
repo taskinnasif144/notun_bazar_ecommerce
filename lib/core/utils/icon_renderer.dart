@@ -7,8 +7,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 Widget iconRender({required String url, double? size, Color? color}) {
   return SvgPicture.asset(
     url,
-    height: size != null ? size.h : 24.h,
-    width: size != null ? size.w : 24.w,
+    height: size != null ? size.h : 18.h,
+    width: size != null ? size.w : 18.w,
     color: color,
   );
 }

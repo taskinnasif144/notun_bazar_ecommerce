@@ -26,13 +26,13 @@ class IconAlertCounter extends StatelessWidget {
     return Stack(
       children: [
         Padding(
-          padding:  EdgeInsets.symmetric(vertical: 6.h,horizontal: 6.w),
+          padding:  EdgeInsets.symmetric(vertical: 7.h,horizontal: 7.w),
           child: icon,
         ),
         if(count > 0)
         Positioned(
           top: -5,
-          right: 3,
+          right: 0,
           child: Container(
             padding: EdgeInsets.all(5),
             decoration: BoxDecoration(
