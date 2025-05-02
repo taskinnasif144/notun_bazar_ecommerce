@@ -6,7 +6,6 @@ import 'package:flutter_getx_template/Common/components/custom_appbars.dart';
 import 'package:flutter_getx_template/Common/components/product_card.dart';
 import 'package:flutter_getx_template/core/loggers/debug_logger.dart';
 import 'package:flutter_getx_template/core/utils/image_renderer.dart';
-import 'package:flutter_getx_template/core/utils/spacing.dart';
 import 'package:flutter_getx_template/core/wrappers/screen_wrapper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -64,17 +63,40 @@ class HomeScreen extends GetView<HomeController> {
                 // TODO: go to best selling
               },
             ),
-           
+            //  Rendering products such that they can be scrolled horizontally
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 spacing: 16,
-                children: productController.allProducts.take(3).map((el)=> ProductCard(
-                  addToCart: (){},
-                  model: el,
-                )).toList(),
-              )),
-               getVerticalSpace(100),
+                children:
+                    productController.allProducts
+                        .take(3)
+                        .map((el) => ProductCard(addToCart: () {}, model: el))
+                        .toList(),
+              ),
+            ),
+
+            // renders the products under Hot deals
+            categoryDivider(
+              context,
+              title: "Hot Deals",
+              onTap: () {
+                // TODO: go to best selling
+              },
+            ),
+            //  Rendering products such that they can be scrolled horizontally
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                spacing: 16,
+                children:
+                    productController.allProducts
+                        .take(3)
+                        .map((el) => ProductCard(addToCart: () {}, model: el))
+                        .toList(),
+              ),
+            ),
+           
           ],
         ),
       ),
