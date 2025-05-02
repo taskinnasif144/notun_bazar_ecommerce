@@ -26,20 +26,20 @@ class IconAlertCounter extends StatelessWidget {
     return Stack(
       children: [
         Padding(
-          padding:  EdgeInsets.symmetric(vertical: 7.h,horizontal: 7.w),
+          padding:  EdgeInsets.only(top: 12, right: 8),
           child: icon,
         ),
         if(count > 0)
         Positioned(
-          top: -5,
+          top: 0,
           right: 0,
           child: Container(
-            padding: EdgeInsets.all(5),
+            padding: EdgeInsets.all(count> 9 ? 3: 6),
             decoration: BoxDecoration(
               color: AppColors.dangerColor,
               shape: BoxShape.circle
             ),
-            child: Text(count.toString(), style: GoogleFonts.roboto(fontSize: 12, color: Colors.white),),
+            child: Text(count.toString(), style: GoogleFonts.roboto(fontSize: 10, color: Colors.white),),
           ),
         )
       ],

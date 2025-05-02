@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/core/constants/app_colors.dart';
-import 'package:flutter_getx_template/core/models/product_model.dart';
+import 'package:flutter_getx_template/Common/models/product_model.dart';
 import 'package:flutter_getx_template/core/utils/image_renderer.dart';
 import 'package:flutter_rating/flutter_rating.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

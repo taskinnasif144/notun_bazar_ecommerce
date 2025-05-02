@@ -7,6 +7,7 @@ import 'package:flutter_getx_template/Common/components/product_card.dart';
 import 'package:flutter_getx_template/core/loggers/debug_logger.dart';
 import 'package:flutter_getx_template/core/utils/image_renderer.dart';
 import 'package:flutter_getx_template/core/wrappers/screen_wrapper.dart';
+import 'package:flutter_getx_template/features/user/cart/controllers/cart_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
@@ -16,7 +17,7 @@ class HomeScreen extends GetView<HomeController> {
 
   final HomeController home = Get.find<HomeController>();
   final ProductControllers productController = Get.find<ProductControllers>();
-
+  final CartController cartController = Get.find<CartController>();
   @override
   Widget build(BuildContext context) {
     printMsg("onPrimary: ${Theme.of(context).colorScheme.onPrimary}");
@@ -71,7 +72,14 @@ class HomeScreen extends GetView<HomeController> {
                 children:
                     productController.allProducts
                         .take(3)
-                        .map((el) => ProductCard(addToCart: () {}, model: el))
+                        .map(
+                          (el) => ProductCard(
+                            addToCart: () {
+                             cartController.addProductsToCart(el);
+                            },
+                            model: el,
+                          ),
+                        )
                         .toList(),
               ),
             ),
@@ -92,11 +100,12 @@ class HomeScreen extends GetView<HomeController> {
                 children:
                     productController.allProducts
                         .take(3)
-                        .map((el) => ProductCard(addToCart: () {}, model: el))
+                        .map((el) => ProductCard(addToCart: () {
+                           cartController.addProductsToCart(el);
+                        }, model: el))
                         .toList(),
               ),
             ),
-           
           ],
         ),
       ),
