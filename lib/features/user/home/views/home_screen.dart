@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_template/Common/Controllers/product_controllers.dart';
 import 'package:flutter_getx_template/Common/Controllers/sidebar_controllers.dart';
 import 'package:flutter_getx_template/Common/components/carousel_component.dart';
 import 'package:flutter_getx_template/Common/components/custom_appbars.dart';
@@ -15,6 +16,7 @@ class HomeScreen extends GetView<HomeController> {
   HomeScreen({super.key});
 
   final HomeController home = Get.find<HomeController>();
+  final ProductControllers productController = Get.find<ProductControllers>();
 
   @override
   Widget build(BuildContext context) {
@@ -62,11 +64,17 @@ class HomeScreen extends GetView<HomeController> {
                 // TODO: go to best selling
               },
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [ProductCard(), ProductCard()],
-            ),
-            getVerticalSpace(100),
+           
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                spacing: 16,
+                children: productController.allProducts.take(3).map((el)=> ProductCard(
+                  addToCart: (){},
+                  model: el,
+                )).toList(),
+              )),
+               getVerticalSpace(100),
           ],
         ),
       ),

@@ -20,6 +20,8 @@ AppBar customAppBar1({title}) {
 
 PreferredSize customAppBar2() {
   return PreferredSize(
+    /// The `preferredSize` is used here to define the size of the custom app bar. 
+    /// It is required because the `AppBar` widget implements the `PreferredSizeWidget` interface, 
     preferredSize: Size.fromHeight(80),
     child: SafeArea(
       child: Padding(
@@ -30,6 +32,7 @@ PreferredSize customAppBar2() {
            Row(
             spacing: 10.w,
              children: [
+              // The hamburger icon to open the drawer
                GestureDetector(
                 onTap: () => Get.find<SidebarController>().openDrawer(),
                 child: Icon(Icons.menu)),
@@ -39,6 +42,7 @@ PreferredSize customAppBar2() {
            Row(
             spacing: 6.w,
             children: [
+              // Notification Icon button
               GestureDetector(
                 onTap: () => Get.toNamed(Routes.notificationScreen),
                 child: IconAlertCounter(
@@ -46,6 +50,7 @@ PreferredSize customAppBar2() {
                   count: 0,
                 ),
               ),
+              // Cart icon button
               GestureDetector(
                 onTap: ()=> Get.toNamed(Routes.cartScreen),
                 child: IconAlertCounter(

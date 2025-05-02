@@ -1,3 +1,6 @@
 import 'package:get/get.dart';
 
-class CartController extends GetxController {}
+class CartController extends GetxController {
+  RxInt cartItemCount = 0.obs;
+
+}
