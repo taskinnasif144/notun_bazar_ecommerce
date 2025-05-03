@@ -1,7 +1,11 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_getx_template/features/user/home/models/categories_model.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
+
+  // Text Editing Controllers 
+  TextEditingController searchController = TextEditingController();
  
   RxDouble selectedCarousel = 0.0.obs;
   RxList<String> carouselItems = [

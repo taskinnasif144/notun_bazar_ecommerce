@@ -5,9 +5,12 @@ import 'package:flutter_getx_template/Common/components/carousel_component.dart'
 import 'package:flutter_getx_template/Common/components/custom_appbars.dart';
 import 'package:flutter_getx_template/Common/components/product_card.dart';
 import 'package:flutter_getx_template/core/loggers/debug_logger.dart';
+import 'package:flutter_getx_template/core/utils/enums.dart';
 import 'package:flutter_getx_template/core/utils/image_renderer.dart';
 import 'package:flutter_getx_template/core/wrappers/screen_wrapper.dart';
 import 'package:flutter_getx_template/features/user/cart/controllers/cart_controller.dart';
+import 'package:flutter_getx_template/features/user/home/bindings/home_binding.dart';
+import 'package:flutter_getx_template/features/user/home/views/product_list_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
@@ -61,7 +64,7 @@ class HomeScreen extends GetView<HomeController> {
               context,
               title: "Best Selling",
               onTap: () {
-                // TODO: go to best selling
+                   Get.to(() => ProductListScreen(categoryType: SeeAllType.bestSellings, ), binding: HomeBinding());
               },
             ),
             //  Rendering products such that they can be scrolled horizontally
@@ -70,12 +73,12 @@ class HomeScreen extends GetView<HomeController> {
               child: Row(
                 spacing: 16,
                 children:
-                    productController.allProducts
+                    productController.bestSellingProducts
                         .take(3)
                         .map(
                           (el) => ProductCard(
                             addToCart: () {
-                             cartController.addProductsToCart(el);
+                              cartController.addProductsToCart(el);
                             },
                             model: el,
                           ),
@@ -89,7 +92,7 @@ class HomeScreen extends GetView<HomeController> {
               context,
               title: "Hot Deals",
               onTap: () {
-                // TODO: go to best selling
+                  Get.to(() => ProductListScreen(categoryType: SeeAllType.hotDeals,), binding: HomeBinding());
               },
             ),
             //  Rendering products such that they can be scrolled horizontally
@@ -98,11 +101,16 @@ class HomeScreen extends GetView<HomeController> {
               child: Row(
                 spacing: 16,
                 children:
-                    productController.allProducts
+                    productController.hotDealsProducts
                         .take(3)
-                        .map((el) => ProductCard(addToCart: () {
-                           cartController.addProductsToCart(el);
-                        }, model: el))
+                        .map(
+                          (el) => ProductCard(
+                            addToCart: () {
+                              cartController.addProductsToCart(el);
+                            },
+                            model: el,
+                          ),
+                        )
                         .toList(),
               ),
             ),

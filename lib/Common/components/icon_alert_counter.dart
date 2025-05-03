@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/core/constants/app_colors.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class IconAlertCounter extends StatelessWidget {
@@ -16,23 +15,25 @@ class IconAlertCounter extends StatelessWidget {
     super.key,
     required this.icon,
     required this.count,
+    this.bottomPadding
   });
 
   final Widget icon;
   final int count;
+  final double? bottomPadding;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Padding(
-          padding:  EdgeInsets.only(top: 12, right: 8),
+          padding:  EdgeInsets.only(top: 12, right: 8, bottom: bottomPadding?? 0),
           child: icon,
         ),
         if(count > 0)
         Positioned(
           top: 0,
-          right: 0,
+          right: 2,
           child: Container(
             padding: EdgeInsets.all(count> 9 ? 3: 6),
             decoration: BoxDecoration(

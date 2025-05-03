@@ -11,7 +11,7 @@ class AppTextStyle {
   );
   static TextStyle bodyTextLarge= GoogleFonts.roboto(
     fontSize: 18,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
     color: Color(0xFF222831),
   );
   

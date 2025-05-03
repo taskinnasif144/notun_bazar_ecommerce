@@ -19,7 +19,7 @@ class AppTheme {
       surface: Colors.white,
       error:  AppColors.dangerColor,
       onPrimary: AppColors.darkGray,
-      onSecondary: Colors.black,
+      onSecondary: Colors.white,
       onSurface: Colors.black,
       onError: Colors.white,
       brightness: Brightness.light,
