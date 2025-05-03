@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/Common/Controllers/sidebar_controllers.dart';
+import 'package:flutter_getx_template/Common/components/custom_input_field.dart';
 import 'package:flutter_getx_template/Common/components/icon_alert_counter.dart';
 import 'package:flutter_getx_template/core/constants/app_icons.dart';
 import 'package:flutter_getx_template/core/constants/image_const.dart';
@@ -10,13 +11,33 @@ import 'package:flutter_getx_template/features/user/cart/controllers/cart_contro
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-AppBar customAppBar1({title}) {
+AppBar customAppBar1({String? title, TextEditingController? controller, bool hasCart = true}) {
   return AppBar(
-    title: Text(title ?? "", style: Theme.of(Get.context!).textTheme.bodyLarge),
+    title:
+        controller != null
+            ? CustomInputField(controller: controller, height: 8,)
+            : Text(
+              title ?? "",
+              style: Theme.of(Get.context!).textTheme.bodyLarge,
+            ),
     leading: IconButton(
       onPressed: () => Get.back(),
       icon: Icon(Icons.chevron_left, size: 28),
     ),
+
+    actions: [
+      if(hasCart)
+      Obx(
+        () => GestureDetector(
+          onTap: () => Get.toNamed(Routes.cartScreen),
+          child: IconAlertCounter(
+            icon: iconRender(url: AppIcons.cartIcon, size: 18),
+            count: Get.find<CartController>().cartPRoducts.length,
+            bottomPadding: 12,
+          ),
+        ),
+      ),
+    ],
   );
 }
 
