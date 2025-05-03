@@ -22,6 +22,7 @@ class CustomInputField extends StatelessWidget {
     this.onChanged,
     this.maxLength,
     this.borderRadius,
+    this.height,
   });
 
   final String? title;
@@ -37,6 +38,7 @@ class CustomInputField extends StatelessWidget {
   final Function(String)? onChanged;
   final int? maxLength;
   final double? borderRadius;
+  final double? height;
 
   // To track obscure and unobsure state of password text
   final RxBool isObscure = true.obs;
@@ -53,7 +55,8 @@ class CustomInputField extends StatelessWidget {
         Obx(() {
           final obscure = isObscure.value;
           return Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 1.h),
+
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: height?? 1.h),
             decoration: BoxDecoration(
               border: Border.all(color: AppColors.lightGray),
               borderRadius: BorderRadius.circular(borderRadius?? 12),
@@ -71,6 +74,7 @@ class CustomInputField extends StatelessWidget {
                 if (prefixIcon != null) SizedBox(width: 12.w),
                 Flexible(
                   child: TextFormField(
+                    
                     onChanged: onChanged,
                     keyboardType: isNumber ? TextInputType.number : null,
                     inputFormatters:
@@ -80,11 +84,13 @@ class CustomInputField extends StatelessWidget {
                     controller: controller,
                     // To remove default styling and setting hint text
                     decoration: InputDecoration(
-                      hintStyle: Theme.of(context).textTheme.bodyMedium,
+                      hintStyle: Theme.of(context).textTheme.bodySmall,
                       hintText: hintText ?? title ?? "",
                       border: InputBorder.none,
+                        isDense: height != null? true: false,
                       contentPadding: EdgeInsets.zero,
                     ),
+                    style: Theme.of(context).textTheme.bodyMedium,
 
                     obscureText: isPassword ? obscure : false,
 
