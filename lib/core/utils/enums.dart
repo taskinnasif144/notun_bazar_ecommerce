@@ -1,0 +1,5 @@
+enum SeeAllType {
+  hotDeals,
+  bestSellings,
+}
+
