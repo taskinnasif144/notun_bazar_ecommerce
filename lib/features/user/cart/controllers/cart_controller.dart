@@ -10,11 +10,22 @@ class CartController extends GetxController {
   // Is responsible for operations related to add to cart
   Future addProductsToCart(ProductModel product) async {
     final cart = CartModel(
+      cartId: product.id,
       productName: product.productTitle,
       productImageUrl: product.imageUrl,
       productPrice: product.currentPrice,
     );
-    cartProducts.add(cart);
+    // Checking whether the product already exists
+    final existingCartIndex = cartProducts.indexWhere((item) => item.cartId == product.id);
+    if (existingCartIndex != -1) {
+      // if exists then we increase the product count and the total price
+      cartProducts[existingCartIndex].productCount.value += 1;
+      cartProducts[existingCartIndex].totalProductPrice.value =
+        cartProducts[existingCartIndex].productPrice * cartProducts[existingCartIndex].productCount.value;
+    } else {
+      // if not we simpy add product to the cart
+      cartProducts.add(cart);
+    }
     showCustomSnackBar("Added to cart");
   }
 
