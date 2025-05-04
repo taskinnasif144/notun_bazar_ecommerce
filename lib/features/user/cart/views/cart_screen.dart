@@ -92,7 +92,9 @@ class CartScreen extends StatelessWidget {
                 ),
                 
                 // remove from cart button
-                IconButton(onPressed: () {}, icon: Icon(Icons.delete, color: Theme.of(context).colorScheme.primary,), ),
+                IconButton(onPressed: () {
+                  cartController.removeFromCart(index);
+                }, icon: Icon(Icons.delete, color: Theme.of(context).colorScheme.primary,), ),
               ],
             ),
           );

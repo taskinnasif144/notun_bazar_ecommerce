@@ -28,4 +28,9 @@ class CartController extends GetxController {
         cartProducts[index].totalProductPrice.value = cartProducts[index].productPrice * cartProducts[index].productCount.value ;
       }
      }
+
+  // is responsible for removing the product from the cart
+  Future removeFromCart(index) async {
+    cartProducts.removeAt(index);
+  }
 }
