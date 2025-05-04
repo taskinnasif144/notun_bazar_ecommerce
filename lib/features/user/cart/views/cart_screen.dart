@@ -15,9 +15,9 @@ class CartScreen extends StatelessWidget {
     return screemWrapper(
       appbar: customAppBar1(title: "My Cart", hasCart: false),
       child: ListView.builder(
-        itemCount: cartController.cartPRoducts.length,
+        itemCount: cartController.cartProducts.length,
         itemBuilder: (context, index) {
-          final item = cartController.cartPRoducts[index];
+          final item = cartController.cartProducts[index];
           return Container(
             height: 100,
             width: Get.width,
@@ -61,15 +61,21 @@ class CartScreen extends StatelessWidget {
                         spacing: 15,
                         children: [
                           // add icon
-                          counterAction(context, icon: Icons.add),
+                          counterAction(context, icon: Icons.add, onTap: () {
+                            cartController.updateProductCountBy(index, 1);
+                          }),
                           // Product count
-                          Text(
-                            item.productCount.toString(),
+                          Obx(
+                            () =>  Text(
+                            item.productCount.value.toString(),
                             style: Theme.of(context).textTheme.bodyLarge!
                                 .copyWith(fontWeight: FontWeight.w400),
                           ),
+                          ),
                           // remove icon
-                          counterAction(context, icon: Icons.remove),
+                          counterAction(context, icon: Icons.remove, onTap: () {
+                             cartController.updateProductCountBy(index, -1);
+                          }),
                   
                           // Product Price
                           Text(
@@ -93,18 +99,21 @@ class CartScreen extends StatelessWidget {
     );
   }
 
-  Container counterAction(BuildContext context, {required IconData icon}) {
+  GestureDetector counterAction(BuildContext context, {required IconData icon, required VoidCallback onTap}) {
     // This function is responsible for the increase decrease buttons
-    return Container(
-      padding: EdgeInsets.all(6),
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary,
-        shape: BoxShape.circle,
-      ),
-      child: Icon(
-        icon,
-        color: Theme.of(context).colorScheme.onSecondary,
-        size: 18.sp,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.all(6),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.primary,
+          shape: BoxShape.circle,
+        ),
+        child: Icon(
+          icon,
+          color: Theme.of(context).colorScheme.onSecondary,
+          size: 18.sp,
+        ),
       ),
     );
   }

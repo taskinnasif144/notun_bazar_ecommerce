@@ -32,7 +32,7 @@ AppBar customAppBar1({String? title, TextEditingController? controller, bool has
           onTap: () => Get.toNamed(Routes.cartScreen),
           child: IconAlertCounter(
             icon: iconRender(url: AppIcons.cartIcon, size: 18),
-            count: Get.find<CartController>().cartPRoducts.length,
+            count: Get.find<CartController>().cartProducts.length,
             bottomPadding: 12,
           ),
         ),
@@ -80,7 +80,7 @@ PreferredSize customAppBar2() {
                     onTap: () => Get.toNamed(Routes.cartScreen),
                     child: IconAlertCounter(
                       icon: iconRender(url: AppIcons.cartIcon, size: 18),
-                      count: Get.find<CartController>().cartPRoducts.length,
+                      count: Get.find<CartController>().cartProducts.length,
                     ),
                   ),
                 ),

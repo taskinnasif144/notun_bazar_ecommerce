@@ -5,13 +5,26 @@ import 'package:get/get.dart';
 
 class CartController extends GetxController {
   // Holds the products in the cart
-  RxList<CartModel> cartPRoducts = <CartModel>[].obs;
+  RxList<CartModel> cartProducts = <CartModel>[].obs;
 
-  // Is responsible for operations related to add to cart 
-  Future addProductsToCart(ProductModel product) async{
-    final cart = CartModel(productName: product.productTitle, productImageUrl: product.imageUrl, productPrice: product.currentPrice);
-    cartPRoducts.add(cart);
+  // Is responsible for operations related to add to cart
+  Future addProductsToCart(ProductModel product) async {
+    final cart = CartModel(
+      productName: product.productTitle,
+      productImageUrl: product.imageUrl,
+      productPrice: product.currentPrice,
+    );
+    cartProducts.add(cart);
     showCustomSnackBar("Added to cart");
   }
 
+  // To change the product number in a cart
+  Future updateProductCountBy(int index, int updateBY) async {
+    // The index parameter refers to the product being modified in the cart.
+    // The updateBy parameter specifies the amount by which the product quantity should be adjusted.
+    // For example, if the value is 1, the product quantity will increase by 1. If the value is -1, it will decrease by 1.
+      if(cartProducts[index].productCount.value + updateBY > 0) {
+        cartProducts[index].productCount.value  += updateBY;
+      }
+     }
 }
