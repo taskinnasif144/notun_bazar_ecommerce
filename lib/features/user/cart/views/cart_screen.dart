@@ -14,7 +14,7 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return screemWrapper(
       appbar: customAppBar1(title: "My Cart", hasCart: false),
-      child: ListView.builder(
+      child: Obx(() => ListView.builder(
         itemCount: cartController.cartProducts.length,
         itemBuilder: (context, index) {
           final item = cartController.cartProducts[index];
@@ -99,7 +99,7 @@ class CartScreen extends StatelessWidget {
             ),
           );
         },
-      ),
+      ),),
     );
   }
 
