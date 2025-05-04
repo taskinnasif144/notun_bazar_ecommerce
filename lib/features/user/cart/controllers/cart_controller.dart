@@ -25,6 +25,7 @@ class CartController extends GetxController {
     // For example, if the value is 1, the product quantity will increase by 1. If the value is -1, it will decrease by 1.
       if(cartProducts[index].productCount.value + updateBY > 0) {
         cartProducts[index].productCount.value  += updateBY;
+        cartProducts[index].totalProductPrice.value = cartProducts[index].productPrice * cartProducts[index].productCount.value ;
       }
      }
 }

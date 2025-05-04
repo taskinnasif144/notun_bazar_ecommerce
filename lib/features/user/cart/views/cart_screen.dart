@@ -58,7 +58,7 @@ class CartScreen extends StatelessWidget {
                       ),
                   
                       Row(
-                        spacing: 15,
+                        spacing: 10,
                         children: [
                           // add icon
                           counterAction(context, icon: Icons.add, onTap: () {
@@ -68,7 +68,7 @@ class CartScreen extends StatelessWidget {
                           Obx(
                             () =>  Text(
                             item.productCount.value.toString(),
-                            style: Theme.of(context).textTheme.bodyLarge!
+                            style: Theme.of(context).textTheme.bodyMedium!
                                 .copyWith(fontWeight: FontWeight.w400),
                           ),
                           ),
@@ -78,11 +78,13 @@ class CartScreen extends StatelessWidget {
                           }),
                   
                           // Product Price
-                          Text(
-                            "\$${item.productPrice}",
-                            style: Theme.of(context).textTheme.bodyLarge!
+                         Obx(() =>  Text(
+                          /// Displays the price of a single product. If the product count increases 
+                          /// beyond one, the calculated total price for the products will be shown.
+                            "\$${item.totalProductPrice.value == 0.0? item.productPrice: item.totalProductPrice.value}",
+                            style: Theme.of(context).textTheme.bodyMedium!
                                 .copyWith(fontWeight: FontWeight.w400),
-                          ),
+                          ),),
                         ],
                       ),
                     ],
@@ -90,7 +92,7 @@ class CartScreen extends StatelessWidget {
                 ),
                 
                 // remove from cart button
-                IconButton(onPressed: () {}, icon: Icon(Icons.delete)),
+                IconButton(onPressed: () {}, icon: Icon(Icons.delete, color: Theme.of(context).colorScheme.primary,), ),
               ],
             ),
           );
@@ -104,7 +106,7 @@ class CartScreen extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(6),
+        padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primary,
           shape: BoxShape.circle,
@@ -112,7 +114,7 @@ class CartScreen extends StatelessWidget {
         child: Icon(
           icon,
           color: Theme.of(context).colorScheme.onSecondary,
-          size: 18.sp,
+          size: 14.sp,
         ),
       ),
     );
