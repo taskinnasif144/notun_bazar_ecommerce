@@ -17,7 +17,7 @@ class ProductListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     homeController.searchController.text = categoryType == SeeAllType.bestSellings? "Best Selling Products": "Hot Deals Products";
-    return screemWrapper(
+    return screenWrapper(
       appbar: customAppBar1(controller: homeController.searchController),
       child: GridView.builder(
         padding: const EdgeInsets.all(8.0),

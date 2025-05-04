@@ -12,7 +12,7 @@ class CartScreen extends StatelessWidget {
   final CartController cartController = Get.find<CartController>();
   @override
   Widget build(BuildContext context) {
-    return screemWrapper(
+    return screenWrapper(
       appbar: customAppBar1(title: "My Cart", hasCart: false),
       child: Obx(() => ListView.builder(
         itemCount: cartController.cartProducts.length,

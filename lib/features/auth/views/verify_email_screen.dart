@@ -18,7 +18,7 @@ class VerifyEmailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return screemWrapper(
+    return screenWrapper(
       appbar: customAppBar1(title: "Forget Password"),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

@@ -9,7 +9,7 @@ class FavouriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return screemWrapper(
+    return screenWrapper(
       scaffoldKey: Get.find<SidebarController>().scaffoldFavouriteKey,
       appbar: customAppBar2(),
       child: Column(),

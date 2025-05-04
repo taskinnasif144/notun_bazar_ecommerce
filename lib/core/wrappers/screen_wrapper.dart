@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/Common/components/custom_sidebar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-Scaffold screemWrapper({appbar, required child, scaffoldKey}) {
+Scaffold screenWrapper({appbar, required child, scaffoldKey}) {
   return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: appbar,

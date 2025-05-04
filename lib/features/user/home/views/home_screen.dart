@@ -24,7 +24,7 @@ class HomeScreen extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     printMsg("onPrimary: ${Theme.of(context).colorScheme.onPrimary}");
-    return screemWrapper(
+    return screenWrapper(
       // home scaffold key to open the app drawer from home page
       scaffoldKey: Get.find<SidebarController>().scaffoldHomeKey,
       appbar: customAppBar2(),
