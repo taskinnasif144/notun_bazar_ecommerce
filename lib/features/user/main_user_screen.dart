@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/Common/components/bottom_navigation.dart';
-import 'package:flutter_getx_template/features/user/favourite/views/favourite_screen.dart';
+import 'package:flutter_getx_template/features/user/search/views/search_screen.dart';
 import 'package:flutter_getx_template/features/user/home/views/home_screen.dart';
 import 'package:flutter_getx_template/features/user/messages/views/messages_screen.dart';
 import 'package:flutter_getx_template/features/user/profile/views/profile_screen.dart';
@@ -27,7 +27,7 @@ class MainUserScreen extends StatelessWidget {
         // List of pages that needs to be transitioned
         children: [
           HomeScreen(),
-          FavouriteScreen(),
+          SearchScreen(),
           MessagesScreen(),
           ProfileScreen(),
         ],

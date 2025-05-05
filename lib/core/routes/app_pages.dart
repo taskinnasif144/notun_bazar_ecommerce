@@ -9,8 +9,8 @@ import 'package:flutter_getx_template/features/notificaitons/Views/notificaitons
 import 'package:flutter_getx_template/features/notificaitons/bindings/notification_bindings.dart';
 import 'package:flutter_getx_template/features/user/cart/bindings/cart_bindings.dart';
 import 'package:flutter_getx_template/features/user/cart/views/cart_screen.dart';
-import 'package:flutter_getx_template/features/user/favourite/bindings/favourites_bindings.dart';
-import 'package:flutter_getx_template/features/user/favourite/views/favourite_screen.dart';
+import 'package:flutter_getx_template/features/user/search/bindings/search_bindings.dart';
+import 'package:flutter_getx_template/features/user/search/views/search_screen.dart';
 import 'package:flutter_getx_template/features/user/home/bindings/home_binding.dart';
 import 'package:flutter_getx_template/features/user/home/views/best_selling_list_screen.dart';
 import 'package:flutter_getx_template/features/user/home/views/category_list_screen.dart';
@@ -118,8 +118,8 @@ class AppPages {
     // favourite features
     GetPage(
       name: Routes.favouriteScreen,
-      page: () => FavouriteScreen(),
-      binding: FavouritesBindings(),
+      page: () => SearchScreen(),
+      binding: SearchBindings(),
     ),
 
     // For Seller

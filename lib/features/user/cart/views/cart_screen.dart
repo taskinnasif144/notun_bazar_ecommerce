@@ -14,7 +14,9 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return screenWrapper(
       appbar: customAppBar1(title: "My Cart", hasCart: false),
-      child: Obx(() => ListView.builder(
+      child: Obx(() =>  cartController.cartProducts.isEmpty?  Center(
+        child: Text("Currently the cart is empty"),
+      ) : ListView.builder(
         itemCount: cartController.cartProducts.length,
         itemBuilder: (context, index) {
           final item = cartController.cartProducts[index];

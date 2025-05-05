@@ -42,14 +42,14 @@ class BottomNavigation extends StatelessWidget {
           icon:
               menuIndex == 1
                   ? iconRender(
-                    url: AppIcons.heartIcon,
+                    url: AppIcons.searchIcon,
                     color: theme.colorScheme.primary,
                   )
                   : iconRender(
-                    url: AppIcons.heartOutlinedIcon,
+                    url: AppIcons.searchOutlinedIcon,
                     color: theme.colorScheme.primary,
                   ),
-          label: 'Favourite',
+          label: 'Search',
         ),
         BottomNavigationBarItem(
           icon: IconAlertCounter(

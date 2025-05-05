@@ -11,19 +11,19 @@ import 'package:flutter_getx_template/features/user/cart/controllers/cart_contro
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-AppBar customAppBar1({String? title, TextEditingController? controller, bool hasCart = true}) {
+AppBar customAppBar1({String? title, TextEditingController? controller, bool hasCart = true, Widget? component, bool hasBackButton = true}) {
   return AppBar(
     title:
         controller != null
             ? CustomInputField(controller: controller, height: 8,)
-            : Text(
+            : component ?? Text(
               title ?? "",
               style: Theme.of(Get.context!).textTheme.bodyLarge,
             ),
-    leading: IconButton(
+    leading: hasBackButton? IconButton(
       onPressed: () => Get.back(),
       icon: Icon(Icons.chevron_left, size: 28),
-    ),
+    ): Center(child: imageRender(url: ImageConst.logo, width: 30, height: 30)),
 
     actions: [
       if(hasCart)
@@ -40,8 +40,7 @@ AppBar customAppBar1({String? title, TextEditingController? controller, bool has
     ],
   );
 }
-
-PreferredSize customAppBar2() {
+PreferredSize customAppBar2({Widget? component}) {
   return PreferredSize(
     /// The `preferredSize` is used here to define the size of the custom app bar.
     /// It is required because the `AppBar` widget implements the `PreferredSizeWidget` interface,
@@ -50,6 +49,7 @@ PreferredSize customAppBar2() {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Row(
+          spacing: 8,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
@@ -60,9 +60,12 @@ PreferredSize customAppBar2() {
                   onTap: () => Get.find<SidebarController>().openDrawer(),
                   child: Icon(Icons.menu),
                 ),
-                imageRender(url: ImageConst.logo, width: 36, height: 36),
+                imageRender(url: ImageConst.logo, width: 30, height: 30),
               ],
             ),
+            // here the passed custom component will be rendered
+            if(component != null)
+            Flexible(child: component),
             Row(
               spacing: 6.w,
               children: [
@@ -92,3 +95,4 @@ PreferredSize customAppBar2() {
     ),
   );
 }
+
