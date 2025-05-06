@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getx_template/Common/components/custom_sidebar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-Scaffold screenWrapper({appbar, required child, scaffoldKey}) {
+Scaffold screenWrapper({appbar, required child, scaffoldKey, bool hasPadding = true}) {
   return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: appbar,
@@ -10,7 +10,7 @@ Scaffold screenWrapper({appbar, required child, scaffoldKey}) {
       drawer: myDrawer(),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+          padding: hasPadding? EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h): EdgeInsets.zero,
           child: child,
         ),
       ),

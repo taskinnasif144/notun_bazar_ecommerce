@@ -115,6 +115,8 @@ class MessageBox extends StatelessWidget {
                     message,
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: isMe ? Colors.white : AppColors.dark,
+                      fontWeight: FontWeight.w400
+                      
                     ),
                   ),
                 ),

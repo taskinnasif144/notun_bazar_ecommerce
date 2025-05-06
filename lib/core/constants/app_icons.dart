@@ -21,4 +21,10 @@ class AppIcons {
   static String personOutlinedIcon = "assets/icons/person_outlined_icon.svg";
   static String chatIcon = "assets/icons/chat_icon.svg";
   static String chatOutlinedIcon= "assets/icons/chat_outlined_icon.svg";
+
+  // profile icons
+    static String logoutIcon= "assets/icons/logout_icon.svg";
+    static String shoppingBagIcon= "assets/icons/shop_bag_icon.svg";
+    static String termsConditionIcon= "assets/icons/terms_icon.svg";
+    static String walletIcon= "assets/icons/wallet_icon.svg";
 }

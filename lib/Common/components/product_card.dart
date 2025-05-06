@@ -19,12 +19,16 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // the outter wrapper for the card
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: AppColors.lightGray),
       ),
+      
+      // height and width of the card
       width: 155.w,
-      height: 433,
+      height: 435,
+
       padding: EdgeInsets.all(8),
       child: Column(
         spacing: 10,
