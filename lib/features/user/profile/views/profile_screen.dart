@@ -88,7 +88,7 @@ class ProfileScreen extends StatelessWidget {
               accountMenuItem(
                 context,
                 optionName: "Terms & Conditions",
-                optionSVGIconPath: AppIcons.ter,
+                optionSVGIconPath: AppIcons.termsConditionIcon,
                 onTap: () {},
               ),
               accountMenuItem(
